@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twiline Media — Strategy. Craft. Trust.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Malayalam:wght@400;500&family=Noto+Sans+Tamil:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F8F7F4;
+      --bg-2:    #EEECE7;
+      --dark:    #252321;
+      --dark-2:  #312E2B;
+      --dark-3:  #1a1816;
+      --gold:    #FFD700;
+      --gold-ui: #C9A800;
+      --amber:   #FFB200;
+      --text:    #252321;
+      --muted:   rgba(37,35,33,0.52);
+      --border:  rgba(37,35,33,0.10);
+      --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+      --max-w:   1200px;
+      --ff-serif: Georgia, 'Times New Roman', serif;
+      --ff-sans:  Inter, Arial, sans-serif;
+      --ff-mono:  Consolas, 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ─────────────────────────────────── */
+    .csr {
+      position: fixed; top: 0; left: 0;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .3s var(--ease), height .3s var(--ease),
+                  background .3s ease, opacity .3s ease;
+      will-change: left, top;
+    }
+    .csr.grow {
+      width: 44px; height: 44px;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+    }
+    .csr.hide { opacity: 0; }
+    @media (hover: none) { .csr { display: none; } body { cursor: auto; } }
+
+    /* ── WRAP ────────────────────────────────────────────── */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+
+    /* ── WORD SPLIT ──────────────────────────────────────── */
+    .sw { display: inline-block; overflow: hidden; vertical-align: bottom; margin-right: 0.22em; }
+    .sw > span {
+      display: block;
+      transform: translateY(112%);
+      transition: transform 0.9s var(--ease);
+    }
+    [data-split].split-in .sw > span { transform: translateY(0); }
+
+    /* ── SCROLL REVEAL ───────────────────────────────────── */
+    .rev { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s var(--ease); }
+    .rev.in { opacity: 1; transform: none; }
+    .rev.d1 { transition-delay: .10s; }
+    .rev.d2 { transition-delay: .20s; }
+    .rev.d3 { transition-delay: .30s; }
+    .rev.d4 { transition-delay: .40s; }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    #nav {
+      position: relative;
+      background: rgba(248,247,244,.97);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-row {
+      display: flex; align-items: center; justify-content: space-between;
+      height: auto; max-width: var(--max-w); margin: 0 auto; padding: 0.5rem 2.5rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo img { height: 150px; width: auto; object-fit: contain; display: block; }
+    .nav-brand-name {
+      font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: .13em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--text);
+      text-decoration: none; letter-spacing: .01em; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-ui); }
+    .nav-btn {
+      font-size: 12.5px; font-weight: 600; color: var(--dark);
+      background: var(--gold); padding: 9px 22px;
+      text-decoration: none; letter-spacing: .04em; transition: background .2s;
+    }
+    .nav-btn:hover { background: var(--amber); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      padding-top: 0;
+      padding-bottom: 80px; /* contain card overflow */
+      background: var(--bg);
+      overflow: hidden; /* prevent cards bleeding into next section */
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    /* Text block */
+    .hero-inner {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem 3.5rem;
+      max-width: 800px; width: 100%;
+    }
+
+    /* Step indicator pill */
+    .hero-steps {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .45rem 1.1rem; border: 1px solid var(--border);
+      border-radius: 100px; margin-bottom: 2rem;
+      font-size: 12px; color: var(--muted);
+    }
+    .hero-step-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(255,215,0,.2);
+    }
+    .hero-step-sep { color: rgba(37,35,33,.2); font-size: 11px; }
+
+    /* Headline */
+    h1.hero-h1 {
+      font-family: var(--ff-serif);
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: normal; font-style: normal;
+      line-height: 1.1; letter-spacing: -.025em;
+      color: var(--dark); margin-bottom: 1.5rem;
+    }
+
+    /* Sub-text */
+    .hero-sub {
+      font-size: 17px; line-height: 1.75; color: var(--muted);
+      max-width: 540px; margin: 0 auto 2.5rem;
+    }
+
+    /* CTA row */
+    .hero-ctas { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    .btn-hero-primary {
+      display: inline-block; font-size: 13.5px; font-weight: 600;
+      color: var(--dark); background: var(--gold);
+      padding: 14px 28px; text-decoration: none; letter-spacing: .02em;
+      border-radius: 6px; transition: background .2s;
+    }
+    .btn-hero-primary:hover { background: var(--amber); }
+
+    .btn-hero-ghost {
+      display: inline-flex; align-items: center; gap: .4em;
+      font-size: 13.5px; font-weight: 500; color: var(--dark);
+      background: transparent; padding: 14px 24px;
+      border: 1.5px solid var(--border); text-decoration: none;
+      letter-spacing: .01em; border-radius: 6px; transition: border-color .2s;
+    }
+    .btn-hero-ghost:hover { border-color: rgba(37,35,33,.35); }
+
+    /* Trust badge */
+    .hero-trust {
+      display: flex; align-items: center; justify-content: center;
+      gap: .75rem; font-size: 13px; color: var(--muted);
+    }
+    .trust-stars { color: var(--gold-ui); letter-spacing: .04em; }
+    .trust-vr { width: 1px; height: 14px; background: var(--border); }
+
+    /* ── HERO FLOATING CARDS ─────────────────────────────── */
+    .hero-cards-wrap {
+      width: 100%; overflow: visible;
+      display: flex; justify-content: center;
+      padding: 0 1.5rem;
+    }
+    .hero-cards {
+      display: flex; align-items: flex-end;
+      justify-content: center; gap: 14px;
+      position: relative;
+    }
+    .hc {
+      flex-shrink: 0; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.13), 0 6px 16px rgba(0,0,0,.07);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+      position: relative;
+    }
+    .hc:hover {
+      box-shadow: 0 32px 80px rgba(0,0,0,.18), 0 8px 20px rgba(0,0,0,.1);
+    }
+    .hc-a { width: 170px; height: 240px; transform: rotate(-7deg) translateY(22px); }
+    .hc-a:hover { transform: rotate(-7deg) translateY(10px); }
+    .hc-b { width: 200px; height: 290px; transform: rotate(-3deg) translateY(10px); }
+    .hc-b:hover { transform: rotate(-3deg) translateY(0); }
+    .hc-c { width: 240px; height: 340px; transform: rotate(0deg); z-index: 5; }
+    .hc-c:hover { transform: translateY(-12px); }
+    .hc-d { width: 200px; height: 290px; transform: rotate(3deg) translateY(10px); }
+    .hc-d:hover { transform: rotate(3deg) translateY(0); }
+    .hc-e { width: 170px; height: 240px; transform: rotate(7deg) translateY(22px); }
+    .hc-e:hover { transform: rotate(7deg) translateY(10px); }
+
+    .hc-img {
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+    }
+    /* Overlay label on image cards */
+    .hc-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.25rem 1rem .85rem;
+      background: linear-gradient(to top, rgba(18,16,14,.8) 0%, transparent 100%);
+    }
+    .hc-label-name {
+      font-family: var(--ff-serif); font-size: 15px; font-style: normal;
+      color: #EEECE7; line-height: 1.2; margin-bottom: .2rem;
+    }
+    .hc-label-tag {
+      font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: .1em;
+      color: rgba(238,236,231,.5); text-transform: uppercase;
+    }
+    /* Text-content cards */
+    .hc-text-card {
+      width: 100%; height: 100%; padding: 1.5rem;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .hc-stat-label {
+      font-family: var(--ff-mono); font-size: 9px; letter-spacing: .13em;
+      text-transform: uppercase; color: rgba(238,236,231,.38);
+      margin-bottom: .75rem;
+    }
+    .hc-stat-num {
+      font-family: var(--ff-serif); font-size: 52px; font-style: normal;
+      line-height: 1; margin-bottom: .3rem;
+    }
+    .hc-stat-sub { font-size: 12px; color: rgba(238,236,231,.45); line-height: 1.5; }
+
+
+    /* ── MANIFESTO — full-height cinematic threshold ─────── */
+    #manifesto {
+      min-height: 100vh;
+      background: #0c0b09;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Full-bleed background: heavily darkened, desaturated */
+    .mf-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504507926084-34cf0b939964?auto=format&fit=crop&w=1800&q=85');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.26) contrast(1.2) saturate(0.4);
+    }
+
+    /* Two-layer gradient: heavy dark bottom for type, left anchor */
+    .mf-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top,  rgba(8,7,6,.97) 0%, rgba(8,7,6,.55) 44%, rgba(8,7,6,.05) 100%),
+        linear-gradient(to right, rgba(8,7,6,.42) 0%, transparent 56%);
+    }
+
+    /* Thin gold rule bled across the section bottom */
+    #manifesto::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold) 0%, rgba(255,215,0,.08) 60%, transparent 100%);
+      z-index: 3;
+    }
+
+    /* Frame: stacks content, pushes foot to bottom */
+    .mf-frame {
+      position: relative; z-index: 2;
+      flex: 1;
+      display: flex; flex-direction: column; justify-content: space-between;
+      max-width: var(--max-w); width: 100%;
+      margin: 0 auto;
+      padding: 2.25rem 2.5rem 5rem;
+    }
+
+    /* Top: editorial label */
+    .mf-cap {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .mf-cap-label {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(238,236,231,.25);
+    }
+    .mf-cap-idx {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .12em;
+      color: rgba(238,236,231,.14);
+    }
+
+    /* Bottom foot: type left, aside right */
+    .mf-foot {
+      display: grid;
+      grid-template-columns: 60% 1fr;
+      align-items: end;
+      gap: 5rem;
+    }
+
+    /* ── Typographic statement ── */
+    .mf-pre {
+      font-family: var(--ff-serif);
+      font-size: clamp(15px, 1.7vw, 24px);
+      color: rgba(238,236,231,.32);
+      line-height: 1.2; display: block; margin-bottom: .1em;
+    }
+    .mf-strike {
+      font-family: var(--ff-serif);
+      font-size: clamp(15px, 1.7vw, 24px);
+      font-weight: normal;
+      color: rgba(238,236,231,.18);
+      text-decoration: line-through;
+      text-decoration-color: rgba(238,236,231,.14);
+      text-decoration-thickness: 1px;
+      line-height: 1.2; display: block; margin-bottom: .5em;
+    }
+    .mf-intro {
+      font-family: var(--ff-serif);
+      font-size: clamp(15px, 1.7vw, 24px);
+      color: rgba(238,236,231,.42);
+      line-height: 1.2; display: block; margin-bottom: .05em;
+    }
+    .mf-word {
+      font-family: var(--ff-serif);
+      font-size: clamp(60px, 9.5vw, 128px);
+      font-weight: normal;
+      color: #EEECE7;
+      line-height: .94; letter-spacing: -.035em;
+      display: block;
+    }
+    .mf-dot { color: var(--gold-ui); }
+
+    /* ── Right aside ── */
+    .mf-aside { padding-bottom: .25rem; }
+    .mf-aside-text {
+      font-size: 14.5px; line-height: 1.84;
+      color: rgba(238,236,231,.38);
+      margin-bottom: 2.25rem;
+    }
+    .mf-cta {
+      display: inline-flex; align-items: center;
+      font-size: 12.5px; font-weight: 600; letter-spacing: .05em;
+      color: var(--dark); background: var(--gold);
+      padding: 13px 26px; text-decoration: none;
+      transition: background .2s;
+    }
+    .mf-cta:hover { background: var(--amber); }
+
+    @media (max-width: 780px) {
+      .mf-foot { grid-template-columns: 1fr; gap: 2.5rem; }
+      .mf-aside { order: -1; }
+    }
+    @media (max-width: 480px) {
+      .mf-frame { padding: 1.5rem 1.5rem 3.5rem; }
+    }
+
+    /* ── SHOWCASE ─────────────────────────────────────────── */
+    #showcase { padding: 0; background: var(--bg); }
+    .showcase-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding: 80px 2.5rem 60px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .showcase-h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(26px, 2.8vw, 40px);
+      font-weight: normal; font-style: normal;
+      color: var(--dark); line-height: 1.18; margin-top: .75rem;
+    }
+    .showcase-sub { font-size: 13px; color: var(--muted); max-width: 240px; text-align: right; line-height: 1.65; }
+    .chip-light {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .15em;
+      text-transform: uppercase; color: rgba(37,35,33,.4);
+    }
+    .chip-light::before { content: '—'; margin-right: .6em; }
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+    .sc-card {
+      position: relative; overflow: hidden;
+      height: 48vh; min-height: 300px;
+      display: flex; align-items: flex-end;
+    }
+    .sc-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .9s var(--ease);
+    }
+    .sc-card:hover .sc-img { transform: scale(1.06); }
+    .sc-cover {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,18,16,.88) 0%, rgba(20,18,16,.2) 60%, transparent 100%);
+      transition: background .5s ease;
+    }
+    .sc-card:hover .sc-cover {
+      background: linear-gradient(to top, rgba(20,18,16,.94) 0%, rgba(20,18,16,.4) 70%, rgba(20,18,16,.1) 100%);
+    }
+    .sc-content { position: relative; z-index: 2; padding: 2.25rem; width: 100%; }
+    .sc-num { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .12em; color: var(--gold); display: block; margin-bottom: 1rem; }
+    .sc-title {
+      font-family: var(--ff-serif); font-size: clamp(22px, 2vw, 32px);
+      font-weight: normal; font-style: normal;
+      color: #EEECE7; line-height: 1.15; margin-bottom: .5rem;
+    }
+    .sc-tag { font-size: 12px; color: rgba(238,236,231,.45); font-family: var(--ff-mono); letter-spacing: .08em; }
+    .sc-arrow {
+      position: absolute; bottom: 2.25rem; right: 2.25rem;
+      font-size: 20px; color: rgba(238,236,231,.25);
+      transition: color .3s ease, transform .4s var(--ease);
+    }
+    .sc-card:hover .sc-arrow { color: var(--gold); transform: translate(4px, -4px); }
+
+    /* ── SERVICES ─────────────────────────────────────────── */
+    #services { padding: 110px 0; background: var(--bg); }
+    .svc-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;
+    }
+    h2.section-h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(26px, 2.6vw, 38px);
+      font-weight: normal; font-style: normal;
+      line-height: 1.18; color: var(--dark); margin-top: .8rem;
+    }
+    .svc-caption { font-size: 13px; color: var(--muted); max-width: 240px; text-align: right; line-height: 1.65; }
+    .svc-list { border-top: 1px solid var(--border); }
+    .svc-row {
+      display: grid; grid-template-columns: 56px 1fr auto;
+      align-items: start; gap: 1.5rem;
+      padding: 1.75rem 0; border-bottom: 1px solid var(--border);
+      transition: border-color .3s ease; position: relative;
+    }
+    .svc-row::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 0; background: var(--bg-2);
+      transition: width .5s var(--ease); z-index: 0;
+    }
+    .svc-row:hover::before { width: 100%; }
+    .svc-row:hover { border-color: rgba(201,168,0,.3); }
+    .svc-row > * { position: relative; z-index: 1; }
+    .svc-num { font-family: var(--ff-mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); padding-top: .3rem; transition: color .3s ease; }
+    .svc-row:hover .svc-num { color: var(--gold-ui); }
+    .svc-name { font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: .4rem; transition: color .3s ease; }
+    .svc-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.65;
+      max-height: 0; overflow: hidden;
+      transition: max-height .5s var(--ease), opacity .4s ease; opacity: 0;
+    }
+    .svc-row:hover .svc-desc { max-height: 60px; opacity: 1; }
+    .svc-ico { width: 28px; height: 28px; color: var(--muted); padding-top: .2rem; transition: color .3s ease, transform .4s var(--ease); }
+    .svc-row:hover .svc-ico { color: var(--gold-ui); transform: translate(3px, -3px); }
+
+    /* ── PHILOSOPHY ───────────────────────────────────────── */
+    #philosophy { background: var(--dark); padding: 110px 0; }
+    .phil-head { margin-bottom: 5rem; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .pillar { padding: 3rem 3rem 3.5rem; border-right: 1px solid rgba(255,255,255,.06); position: relative; overflow: hidden; }
+    .pillar:last-child { border-right: none; }
+    .pillar-bg-letter {
+      position: absolute; top: -20px; right: -10px;
+      font-family: var(--ff-serif); font-size: 140px;
+      color: rgba(255,255,255,.03); line-height: 1;
+      pointer-events: none; user-select: none; font-style: normal;
+    }
+    .pillar-bar { width: 24px; height: 2px; background: var(--gold); margin-bottom: 2rem; }
+    .pillar-num { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .12em; color: rgba(238,236,231,.25); margin-bottom: 1.25rem; }
+    .pillar-name { font-size: 20px; font-weight: 600; color: var(--bg-2); margin-bottom: 1rem; }
+    .pillar-body { font-size: 14px; color: rgba(238,236,231,.5); line-height: 1.82; }
+
+    /* ── REGIONAL — full-bleed India cityscape ───────────── */
+    #regional {
+      min-height: 88vh;
+      background: #0e0b08;
+      position: relative;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Full-bleed Kerala landscape image — full visibility */
+    .regional-bg {
+      position: absolute; inset: 0;
+      background-image: url('./assets/announcement.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: brightness(0.48) contrast(1.08) saturate(1.05);
+    }
+
+    /* Gradient: heavy left + dark base, image breathes on the right */
+    .regional-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(8,6,4,.97) 0%, rgba(8,6,4,.78) 36%, rgba(8,6,4,.18) 72%, transparent 100%),
+        linear-gradient(to top,   rgba(6,4,2,.82) 0%, rgba(6,4,2,.3) 30%, transparent 60%);
+    }
+
+    /* Frame: z-index layer for content */
+    .regional-frame {
+      position: relative; z-index: 2;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 52% 48%;
+      max-width: var(--max-w); width: 100%;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      align-items: center;
+      min-height: 88vh;
+    }
+
+    /* Content: left column */
+    .regional-left {
+      padding: 6rem 4rem 6rem 0;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .regional-chip {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .15em;
+      text-transform: uppercase; color: rgba(238,236,231,.28);
+      display: block; margin-bottom: 1.75rem;
+    }
+    .regional-chip::before { content: '—'; margin-right: .6em; }
+    h2.regional-h2 {
+      font-family: var(--ff-serif); font-size: clamp(32px, 3.2vw, 50px);
+      font-weight: normal;
+      color: #EEECE7; line-height: 1.1; margin-bottom: 1.75rem;
+    }
+    .regional-body {
+      font-size: 14.5px; color: rgba(238,236,231,.42);
+      line-height: 1.86; margin-bottom: 1.25rem;
+    }
+    /* Malayalam: featured identity marker */
+    .ml-block {
+      border-top: 1px solid rgba(255,215,0,.16);
+      padding-top: 2rem; margin-top: 2.25rem;
+      background: transparent; border-left: none; padding-left: 0;
+    }
+    .ml-text {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      font-size: clamp(30px, 3.4vw, 48px);
+      color: rgba(238,236,231,.85);
+      line-height: 1.3; margin-bottom: .5rem;
+    }
+    .ml-trans {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(238,236,231,.26);
+    }
+    .regional-location {
+      display: flex; align-items: center; gap: .65rem; margin-top: 2rem;
+    }
+    .regional-loc-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(255,215,0,.18);
+    }
+    .regional-loc-text {
+      font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(238,236,231,.28);
+    }
+
+    /* Right: decorative zone — image shows through */
+    .regional-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      height: 100%;
+    }
+    /* Large faint Malayalam watermark floating centre-right */
+    .regional-img-wm {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      font-size: clamp(90px, 12vw, 160px);
+      color: rgba(238,236,231,.055);
+      line-height: 1.1; letter-spacing: .02em;
+      pointer-events: none; user-select: none;
+      text-align: center;
+    }
+    /* Rotated editorial index */
+    .regional-img-idx {
+      position: absolute; right: -1rem; top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: var(--ff-mono); font-size: 9px; letter-spacing: .22em;
+      text-transform: uppercase; color: rgba(238,236,231,.13);
+      white-space: nowrap; pointer-events: none;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    #cta { background: #FFFFFF; padding: 130px 0; position: relative; overflow: hidden; }
+    .cta-inner { max-width: 700px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-chip {
+      font-family: var(--ff-mono); font-size: 10px; letter-spacing: .15em;
+      text-transform: uppercase; color: rgba(37,35,33,.35);
+      margin-bottom: 1.75rem; display: block;
+    }
+    .cta-chip::before { content: '—'; margin-right: .6em; }
+    h2.cta-h2 {
+      font-family: var(--ff-serif); font-size: clamp(30px, 4vw, 54px);
+      font-weight: normal; font-style: normal;
+      line-height: 1.15; color: var(--dark); margin-bottom: 1rem;
+    }
+    .cta-sub { font-size: 15px; color: rgba(37,35,33,.48); line-height: 1.72; margin-bottom: 3.5rem; }
+    .cta-btn {
+      display: inline-block; font-size: 13px; font-weight: 600;
+      color: var(--dark); background: var(--gold); padding: 16px 44px;
+      text-decoration: none; letter-spacing: .05em; transition: background .2s;
+    }
+    .cta-btn:hover { background: var(--amber); }
+    .cta-ambient {
+      position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,.08) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer { background: var(--dark); padding: 70px 0 40px; border-top: 1px solid rgba(255,215,0,.08); }
+    .footer-top {
+      display: grid; grid-template-columns: 220px 1fr auto;
+      gap: 5rem; padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(238,236,231,.07); margin-bottom: 2rem;
+    }
+    .footer-logo img { height: 180px; width: auto; object-fit: contain; display: block; margin-bottom: 1rem; }
+    .footer-brand { font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(238,236,231,.3); margin-bottom: .75rem; }
+    .footer-tag { font-size: 13px; color: rgba(238,236,231,.38); line-height: 1.7; max-width: 190px; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .fc-head { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(238,236,231,.25); margin-bottom: 1.25rem; }
+    .fc a { display: block; font-size: 13px; color: rgba(238,236,231,.5); text-decoration: none; margin-bottom: .65rem; transition: color .2s; }
+    .fc a:hover { color: var(--bg-2); }
+    .footer-contact { text-align: right; }
+    .fc-contact-label { font-family: var(--ff-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(238,236,231,.25); margin-bottom: .75rem; }
+    .fc-email { display: block; font-size: 15px; font-weight: 500; color: rgba(238,236,231,.75); text-decoration: none; margin-bottom: .4rem; transition: color .2s; }
+    .fc-email:hover { color: var(--gold); }
+    .fc-location { font-size: 12px; color: rgba(238,236,231,.28); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .fc-copy { font-family: var(--ff-mono); font-size: 11px; color: rgba(238,236,231,.2); letter-spacing: .06em; }
+    .fc-bottom-tag { font-family: var(--ff-mono); font-size: 11px; color: rgba(238,236,231,.2); letter-spacing: .10em; text-transform: uppercase; }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .nav-logo img { height: 100px; width: auto; }
+      .showcase-grid { grid-template-columns: 1fr 1fr; }
+      .sc-card { height: 44vw; min-height: 260px; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); padding: 2rem 2rem 2.5rem; }
+      .pillar:last-child { border-bottom: none; }
+      .regional-frame { grid-template-columns: 1fr; min-height: auto; padding: 4rem 2.5rem 3rem; }
+      .regional-right { display: none; }
+      .regional-left { padding: 0; }
+      .mf-frame { padding: 2rem 2.5rem 4rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-contact { text-align: left; }
+      .showcase-head { flex-direction: column; }
+      .showcase-sub { text-align: left; }
+    }
+    @media (max-width: 768px) {
+      .nav-logo img { height: 80px; width: auto; }
+      .nav-btn { padding: 8px 18px; font-size: 12px; }
+      .hero-cards { gap: 6px; }
+      .hc-a, .hc-e { display: none; }
+      .hc-b { width: 140px; height: 200px; }
+      .hc-c { width: 180px; height: 250px; }
+      .hc-d { width: 140px; height: 200px; }
+      h1.hero-h1 { font-size: clamp(32px, 7vw, 48px); }
+      .hero-inner { padding: 2rem 1.5rem; }
+      h2.regional-h2 { font-size: clamp(28px, 6vw, 40px); }
+      .mf-word { font-size: clamp(50px, 8vw, 100px); }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,.06); }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-logo img { height: 70px; width: auto; }
+      .nav-links { display: none; }
+      .nav-row { padding: 0.5rem 1.5rem; }
+      .nav-btn { padding: 7px 16px; font-size: 11px; }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .sc-card { height: 72vw; min-height: 260px; }
+      h1.hero-h1 { font-size: clamp(28px, 6vw, 42px); }
+      .hero-inner { padding: 1.5rem 1.25rem 2rem; }
+      .hero-ctas { flex-direction: column; gap: 0.75rem; }
+      .btn-hero-primary, .btn-hero-ghost { width: 100%; text-align: center; }
+      .hc-b, .hc-d { display: none; }
+      .hc-c { width: 200px; height: 260px; }
+      .hero-cards-wrap { padding: 0 1rem; }
+      .mf-frame { padding: 1.5rem 1.5rem 3rem; }
+      .mf-foot { grid-template-columns: 1fr; }
+      .mf-aside { order: -1; }
+      .mf-word { font-size: clamp(40px, 10vw, 80px); }
+      .mf-pre, .mf-strike, .mf-intro { font-size: clamp(13px, 3.5vw, 18px); }
+      h2.regional-h2 { font-size: clamp(24px, 5vw, 36px); }
+      .regional-left { padding: 0; }
+      .regional-body { font-size: 13px; }
+      .ml-text { font-size: clamp(24px, 5vw, 36px); }
+      h2.cta-h2 { font-size: clamp(24px, 5vw, 40px); }
+      .cta-sub { font-size: 14px; }
+      .cta-btn { padding: 12px 24px; font-size: 12px; }
+      .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-logo img { height: 80px; width: auto; }
+      .footer-tag { font-size: 12px; }
+      .wrap { padding: 0 1.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { padding: 1.5rem 1.5rem 2rem; }
+      .pillar:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,.06); }
+      .pillar:nth-child(3) { border-bottom: none; }
+    }
+    @media (max-width: 480px) {
+      .nav-logo img { height: 60px; width: auto; }
+      h1.hero-h1 { font-size: clamp(24px, 5vw, 36px); }
+      .hero-step-dot { width: 5px; height: 5px; }
+      .hero-steps { font-size: 10px; padding: .3rem .8rem; margin-bottom: 1rem; }
+      .hero-sub { font-size: 15px; margin-bottom: 1.5rem; }
+      .hero-trust { font-size: 12px; gap: .5rem; }
+      .hc-c { width: 160px; height: 220px; }
+      .hero-cards-wrap { padding: 0; }
+      #hero { padding-bottom: 60px; }
+      .mf-frame { padding: 1rem 1rem 2.5rem; }
+      .mf-word { font-size: clamp(36px, 9vw, 70px); }
+      .mf-pre, .mf-strike, .mf-intro { font-size: 12px; }
+      .mf-aside-text { font-size: 13px; margin-bottom: 1.5rem; }
+      .mf-cta { padding: 10px 20px; font-size: 11.5px; }
+      h2.regional-h2 { font-size: clamp(22px, 5vw, 32px); }
+      .regional-body { font-size: 12.5px; line-height: 1.7; }
+      .ml-text { font-size: clamp(20px, 4.5vw, 30px); }
+      .ml-trans { font-size: 9px; }
+      .regional-location { gap: .4rem; }
+      .regional-loc-text { font-size: 9px; }
+      #cta { padding: 80px 0; }
+      h2.cta-h2 { font-size: clamp(20px, 5vw, 36px); margin-bottom: .75rem; }
+      .cta-sub { font-size: 13px; margin-bottom: 2rem; }
+      .cta-btn { padding: 10px 20px; font-size: 11.5px; }
+      .footer-logo img { height: 60px; width: auto; }
+      .footer-tag { font-size: 11px; }
+      .fc-head { font-size: 9px; }
+      .fc a { font-size: 12px; margin-bottom: .5rem; }
+      .fc-contact-label { font-size: 9px; }
+      .fc-email { font-size: 13px; }
+      .fc-location { font-size: 11px; }
+      .pillar-name { font-size: 17px; }
+      .pillar-body { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="csr" id="csr"></div>
+
+<!-- ══════════════════════════════════════ NAV -->
+<nav id="nav">
+  <div class="nav-row">
+    <a href="#" class="nav-logo">
+      <img src="./assets/logo-black.png" alt="Twiline Media">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#showcase">Services</a></li>
+      <li><a href="#philosophy">How We Work</a></li>
+    </ul>
+    <a href="#cta" class="nav-btn">Let's talk</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════ HERO -->
+<section id="hero">
+
+  <!-- Text block — centered -->
+  <div class="hero-inner">
+
+    <!-- Step indicator (like reference) -->
+    <div class="hero-steps rev">
+      <span class="hero-step-dot"></span>
+      <span>Book a call</span>
+      <span class="hero-step-sep">→</span>
+      <span>Build your brand</span>
+      <span class="hero-step-sep">→</span>
+      <span>Grow revenue</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero-h1" data-split>The thread that connects intention to impact.</h1>
+
+    <!-- Sub -->
+    <p class="hero-sub rev d2">We work with founders and brands who demand precision, craft, and measurable results — not templates.</p>
+
+    <!-- CTAs -->
+    <div class="hero-ctas rev d3">
+      <a href="mailto:twilinemedia@gmail.com" class="btn-hero-primary">First consultation on us</a>
+      <a href="#showcase" class="btn-hero-ghost">Our work &nbsp;↗</a>
+    </div>
+
+    <!-- Trust badge -->
+    <div class="hero-trust rev d4">
+      <span class="trust-stars">★★★★★</span>
+      <span class="trust-vr"></span>
+      <span>Precision marketing for India's boldest brands</span>
+    </div>
+
+  </div>
+
+  <!-- Floating work cards -->
+  <div class="hero-cards-wrap">
+    <div class="hero-cards">
+
+      <!-- Card A — Brand/Identity image -->
+      <div class="hc hc-a">
+        <div class="hc-img" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="hc-label">
+          <div class="hc-label-name">Brand Identity</div>
+          <div class="hc-label-tag">Branding · Voice</div>
+        </div>
+      </div>
+
+      <!-- Card B — Dark stat (CTR) -->
+      <div class="hc hc-b" style="background:#1e1c1a;">
+        <div class="hc-text-card">
+          <div class="hc-stat-label">Avg. CTR Lift</div>
+          <div class="hc-stat-num" style="color:#FFD700;">12%</div>
+          <div class="hc-stat-sub">across Meta &amp;<br>Google campaigns</div>
+        </div>
+      </div>
+
+      <!-- Card C — Centre hero (Film) -->
+      <div class="hc hc-c">
+        <div class="hc-img" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="hc-label">
+          <div class="hc-label-name">Film &amp; Direction</div>
+          <div class="hc-label-tag">Video · Colour Grade</div>
+        </div>
+      </div>
+
+      <!-- Card D — Dark stat (Pipeline) -->
+      <div class="hc hc-d" style="background:#252321;">
+        <div class="hc-text-card">
+          <div class="hc-stat-label">Pipeline Growth</div>
+          <div class="hc-stat-num" style="color:#EEECE7;">340%</div>
+          <div class="hc-stat-sub">delivered in<br>90 days</div>
+        </div>
+      </div>
+
+      <!-- Card E — Performance image -->
+      <div class="hc hc-e">
+        <div class="hc-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="hc-label">
+          <div class="hc-label-name">Performance</div>
+          <div class="hc-label-tag">Google · Meta · ROI</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════ MANIFESTO -->
+<section id="manifesto">
+
+  <!-- Cinematic background image -->
+  <div class="mf-bg" aria-hidden="true"></div>
+  <!-- Dark gradient overlay -->
+  <div class="mf-overlay" aria-hidden="true"></div>
+
+  <div class="mf-frame">
+
+    <!-- Editorial cap — top of section -->
+    <div class="mf-cap">
+      <span class="mf-cap-label">§ 01 — The standard we hold</span>
+      <span class="mf-cap-idx">Twiline Media</span>
+    </div>
+
+    <!-- Typographic anchor — bottom of section -->
+    <div class="mf-foot">
+
+      <!-- Left: statement stack -->
+      <div class="mf-headline-block">
+        <span class="mf-pre rev">We don't build</span>
+        <span class="mf-strike rev d1">campaigns.</span>
+        <span class="mf-intro rev d2">We build</span>
+        <span class="mf-word rev d3">conviction<span class="mf-dot">.</span></span>
+      </div>
+
+      <!-- Right: body + CTA -->
+      <div class="mf-aside rev d2">
+        <p class="mf-aside-text">Every deliverable we create is engineered to move people toward a decision. Not templates. Not guesswork. The kind of work that earns attention — and holds it.</p>
+        <a href="mailto:twilinemedia@gmail.com" class="mf-cta">First consultation on us &nbsp;↗</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ SHOWCASE -->
+<section id="showcase">
+  <div class="showcase-head">
+    <div>
+      <span class="chip-light rev">What we build</span>
+      <h2 class="showcase-h2 rev d1">Strategy and craft,<br>working as one.</h2>
+    </div>
+    <p class="showcase-sub rev d2">Nine disciplines. One brand thread. Every execution measured.</p>
+  </div>
+
+  <div class="showcase-grid">
+
+    <div class="sc-card rev">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">01</span>
+        <h3 class="sc-title">Digital Marketing</h3>
+        <span class="sc-tag">Full-funnel · Awareness · Conversion</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d1">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">02</span>
+        <h3 class="sc-title">Social Media Marketing</h3>
+        <span class="sc-tag">Content Systems · Algorithms · Engagement</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d1">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">03</span>
+        <h3 class="sc-title">Creative Ads</h3>
+        <span class="sc-tag">Scroll-stopping · Cinematic · Performance</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d2">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">04</span>
+        <h3 class="sc-title">Video &amp; Photography</h3>
+        <span class="sc-tag">Concept · Direction · Colour Grade</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d2">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">05</span>
+        <h3 class="sc-title">Branding</h3>
+        <span class="sc-tag">Logo · Palette · Voice · Motion</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d2">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">06</span>
+        <h3 class="sc-title">Inbound Marketing</h3>
+        <span class="sc-tag">Content Architecture · Nurture · Convert</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d3">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">07</span>
+        <h3 class="sc-title">Investor Pitching</h3>
+        <span class="sc-tag">Decks · Narratives · Funding</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d3">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">08</span>
+        <h3 class="sc-title">Content Marketing</h3>
+        <span class="sc-tag">Authority · Long-form · Trust</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="sc-card rev d3">
+      <div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="sc-cover"></div>
+      <div class="sc-content">
+        <span class="sc-num">09</span>
+        <h3 class="sc-title">Performance Marketing</h3>
+        <span class="sc-tag">Google · Meta · ROI · Full-funnel</span>
+      </div>
+      <span class="sc-arrow" aria-hidden="true">↗</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- services section removed — all nine disciplines now live in #showcase -->
+
+
+<!-- ══════════════════════════════════════ PHILOSOPHY -->
+<section id="philosophy">
+  <div class="wrap">
+    <div class="phil-head">
+      <span style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(238,236,231,.3);" class="rev">— How we work</span>
+      <h2 style="font-family:var(--ff-serif);font-size:clamp(26px,2.8vw,38px);font-weight:normal;font-style:normal;color:var(--bg-2);margin-top:.8rem;line-height:1.18;" class="rev d1">Three pillars.<br>Every project.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar rev d1">
+        <span class="pillar-bg-letter" aria-hidden="true">P</span>
+        <div class="pillar-bar"></div>
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Precision</div>
+        <p class="pillar-body">Every element earns its place. No padding, no filler. We audit before we add. Precision is not minimalism — it is maximum signal with minimum noise.</p>
+      </div>
+      <div class="pillar rev d2">
+        <span class="pillar-bg-letter" aria-hidden="true">C</span>
+        <div class="pillar-bar"></div>
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Craft</div>
+        <p class="pillar-body">Cinematic discipline — composition, contrast, pacing — applied to every deliverable. Form follows function, but never at the expense of beauty.</p>
+      </div>
+      <div class="pillar rev d3">
+        <span class="pillar-bg-letter" aria-hidden="true">T</span>
+        <div class="pillar-bar"></div>
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Trust</div>
+        <p class="pillar-body">Strategic partner, not vendor. We speak plainly, work transparently, and let results do the talking. Data-backed. Plain-spoken. Results-forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ REGIONAL -->
+<section id="regional">
+
+  <!-- Full-bleed warm India cityscape -->
+  <div class="regional-bg" aria-hidden="true"></div>
+  <div class="regional-overlay" aria-hidden="true"></div>
+
+  <div class="regional-frame">
+
+    <!-- Content: left column -->
+    <div class="regional-left">
+      <span class="regional-chip rev">Where we are rooted</span>
+      <h2 class="regional-h2 rev d1">Built for South<br>India.</h2>
+      <p class="regional-body rev d2">We saw a gap: no creative agency brings all nine disciplines under one roof. Instead of bouncing between vendors, we sit alongside your brand from day one — strategy through execution, integrated, owned, measured.</p>
+      <p class="regional-body rev d3">We're building from Kerala and Tamil Nadu. Bold founders, founders, consumer brands scaling fast — they deserve a partner who understands South Indian markets, timelines, and ambition.</p>
+
+      <div class="ml-block rev d3">
+        <div class="ml-text" lang="ml">എല്ലാം ഒരു ഇടത്തിൽ</div>
+        <div style="font-family: 'Noto Sans Tamil', sans-serif; font-size: clamp(24px, 2.8vw, 40px); color: rgba(238,236,231,.72); line-height: 1.3; margin-bottom: .5rem;" lang="ta">அனைத்தும் ஒரே இடத்தில்</div>
+        <div class="ml-trans">Everything in one place</div>
+      </div>
+
+      <div class="regional-location rev d4">
+        <span class="regional-loc-dot" aria-hidden="true"></span>
+        <span class="regional-loc-text">Kerala · Tamil Nadu · South India</span>
+      </div>
+    </div>
+
+    <!-- Right: image shows through — decorative watermark only -->
+    <div class="regional-right" aria-hidden="true">
+      <span class="regional-img-wm">തുടക്കം</span>
+      <span class="regional-img-idx">§ 02 · India</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ CTA -->
+<section id="cta">
+  <div class="cta-ambient" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <span class="cta-chip rev">Next steps</span>
+    <h2 class="cta-h2" data-split>Ready to build something precise?</h2>
+    <p class="cta-sub rev d2">First consultation on us. No pitch decks, no pressure — just an honest conversation about what you need.</p>
+    <a href="mailto:twilinemedia@gmail.com" class="cta-btn rev d3">Book your free consultation</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="./assets/logo-white.png" alt="Twiline Media">
+        <p class="footer-tag">The thread that connects intention to impact.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer links">
+        <div class="fc">
+          <div class="fc-head">Services</div>
+          <a href="#showcase">Digital Marketing</a>
+          <a href="#showcase">Social Media</a>
+          <a href="#showcase">Creative Ads</a>
+          <a href="#showcase">Video &amp; Photography</a>
+          <a href="#showcase">Branding</a>
+        </div>
+        <div class="fc">
+          <div class="fc-head">More</div>
+          <a href="#showcase">Inbound Marketing</a>
+          <a href="#showcase">Investor Pitching</a>
+          <a href="#showcase">Content Marketing</a>
+          <a href="#showcase">Performance Marketing</a>
+        </div>
+        <div class="fc">
+          <div class="fc-head">Company</div>
+          <a href="#showcase">Work Standards</a>
+          <a href="#philosophy">Approach</a>
+          <a href="#regional">Markets</a>
+          <a href="#cta">Contact</a>
+        </div>
+      </nav>
+      <div class="footer-contact">
+        <div class="fc-contact-label">Get in touch</div>
+        <a href="mailto:twilinemedia@gmail.com" class="fc-email">twilinemedia@gmail.com</a>
+        <div class="fc-location">Kerala, Tamil Nadu — India</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="fc-copy">&copy; 2026 Twiline Media. All rights reserved.</p>
+      <p class="fc-bottom-tag">Strategy &nbsp;&middot;&nbsp; Craft &nbsp;&middot;&nbsp; Trust</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── CURSOR (unchanged) ──────────────────────────────────── */
+  const csr = document.getElementById('csr');
+  let mx = -100, my = -100, cx = -100, cy = -100;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function lerp() {
+    cx += (mx - cx) * 0.18;
+    cy += (my - cy) * 0.18;
+    csr.style.left = cx + 'px';
+    csr.style.top  = cy + 'px';
+    requestAnimationFrame(lerp);
+  })();
+  document.querySelectorAll('a, button, .svc-row, .sc-card, .hc').forEach(el => {
+    el.addEventListener('mouseenter', () => csr.classList.add('grow'));
+    el.addEventListener('mouseleave', () => csr.classList.remove('grow'));
+  });
+  document.addEventListener('mouseleave', () => csr.classList.add('hide'));
+  document.addEventListener('mouseenter', () => csr.classList.remove('hide'));
+
+  /* ── WORD SPLIT ANIMATION ────────────────────────────────── */
+  function splitWords(el) {
+    el.innerHTML = el.textContent.trim().split(' ').map((w, i) =>
+      '<span class="sw" style="transition-delay:' + (i * 0.075) + 's"><span>' + w + '</span></span>'
+    ).join(' ');
+  }
+  const wordObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('split-in'); wordObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('[data-split]').forEach(el => {
+    splitWords(el);
+    if (el.closest('#hero')) {
+      setTimeout(() => el.classList.add('split-in'), 350);
+    } else {
+      wordObs.observe(el);
+    }
+  });
+
+  /* ── SCROLL REVEAL ───────────────────────────────────────── */
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.rev').forEach(el => revObs.observe(el));
+
+  /* ── REGIONAL IMAGE PARALLAX ─────────────────────────────── */
+  const regImg = document.querySelector('.regional-bg');
+  const regSec = document.getElementById('regional');
+  if (regImg && regSec) {
+    window.addEventListener('scroll', () => {
+      const rect = regSec.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const prog = -rect.top / (rect.height + window.innerHeight);
+        regImg.style.transform = 'translateY(' + (prog * 50 - 8) + 'px)';
+      }
+    }, { passive: true });
+  }
+</script>
+
+</body>
+</html>

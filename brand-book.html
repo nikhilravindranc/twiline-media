@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twiline Media — Brand Book 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#252321;--bg2:#312E2B;--light:#EEECE7;--soft:#E1DDD6;
+  --gold:#FFD700;--amber:#FFB200;--red:#FC362B;
+  --ton-dark:#EEECE7;--ton-light:#252321;
+  --ml:rgba(238,236,231,0.62);--md:rgba(37,35,33,0.65);
+  --bg2:rgba(238,236,231,0.12);
+  --bG:rgba(255,215,0,0.13);--bL:rgba(37,35,33,0.09);
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:Inter,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --mono:Consolas,'SF Mono','Courier New',monospace;
+  --nw:240px
+}
+html{scroll-behavior:smooth}
+body{background:#252321;color:#EEECE7;font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{position:fixed;top:0;left:0;width:var(--nw);height:100vh;background:#312E2B;border-right:1px solid rgba(255,215,0,0.13);display:flex;flex-direction:column;z-index:100;overflow-y:auto}
+.sb-logo{padding:32px 26px 24px;border-bottom:1px solid rgba(255,215,0,0.13)}
+.sb-logo svg{width:48px;height:auto}
+.sb-meta{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(238,236,231,0.38);margin-top:10px;line-height:1.9}
+.nav-list{list-style:none;padding:20px 0;flex:1}
+.nav-list a{display:flex;align-items:center;gap:12px;padding:10px 26px;text-decoration:none;color:rgba(238,236,231,0.5);font-size:12px;letter-spacing:.05em;border-left:2px solid transparent;transition:color .2s,border-color .2s}
+.nav-list a:hover{color:#EEECE7;border-left-color:rgba(255,215,0,0.35)}
+.nav-list a.active{color:#FFD700;border-left-color:#FFD700}
+.nav-num{font-family:var(--mono);font-size:10px;color:rgba(238,236,231,0.28);min-width:18px}
+.nav-list a.active .nav-num{color:rgba(255,215,0,0.5)}
+.sb-foot{padding:18px 26px;border-top:1px solid rgba(255,215,0,0.1);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(238,236,231,0.22)}
+
+/* ── LAYOUT ── */
+main{margin-left:var(--nw)}
+section{padding:88px 76px;position:relative}
+section:not(#cover){border-top:1px solid rgba(255,215,0,0.1)}
+
+/* ── SECTION HEADER ── */
+.sec-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,236,231,0.35);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';width:36px;height:1px;background:rgba(255,215,0,0.3)}
+.sec-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:300;line-height:.96;margin-bottom:48px;max-width:780px}
+.sec-title em{font-style:italic;color:#FFD700}
+.gold-rule{width:52px;height:2px;background:#FFD700;margin:28px 0}
+.desc{font-size:15px;color:rgba(238,236,231,0.65);max-width:660px;line-height:1.85;margin-bottom:36px}
+.sub-title{font-family:var(--serif);font-size:26px;font-weight:300;margin:52px 0 22px}
+.sub-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.35);margin-bottom:18px}
+
+/* ── COVER ── */
+#cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:68px 76px;background:#252321}
+.cov-mark svg{width:110px;height:auto;margin-bottom:auto}
+.cov-hl{font-family:var(--serif);font-size:clamp(52px,6.5vw,90px);font-weight:300;line-height:.93;max-width:860px;margin:80px 0 36px}
+.cov-hl em{font-style:italic;color:#FFD700}
+.cov-foot{display:flex;align-items:flex-end;justify-content:space-between}
+.cov-tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.45);max-width:380px;line-height:1.9}
+.cov-ver{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,236,231,0.22);text-align:right}
+.scroll-hint{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,236,231,0.28);margin-top:48px}
+.scroll-line{width:38px;height:1px;background:rgba(255,215,0,0.3)}
+
+/* ── LOGO ── */
+.logo-display{background:#312E2B;border:1px solid rgba(255,215,0,0.13);border-radius:20px;padding:68px;display:flex;align-items:center;justify-content:center;margin-bottom:36px}
+.logo-display svg{width:220px;height:auto}
+.logo-vars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+.lv{border-radius:14px;padding:36px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.lv svg{width:72px;height:auto}
+.lv-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+.lv.dark{background:#252321;border:1px solid rgba(255,215,0,0.13)}.lv.dark .lv-lbl{color:rgba(238,236,231,0.45)}
+.lv.light{background:#EEECE7;border:1px solid rgba(37,35,33,0.09)}.lv.light .lv-lbl{color:rgba(37,35,33,0.6)}
+.lv.gold-bg{background:#FFD700;border:1px solid transparent}.lv.gold-bg .lv-lbl{color:rgba(37,35,33,0.65)}
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rule-card{background:#312E2B;border-radius:14px;padding:26px;border:1px solid rgba(255,215,0,0.1)}
+.rule-card-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(238,236,231,0.38);margin-bottom:12px}
+.rule-card p{font-size:14px;color:rgba(238,236,231,0.8);line-height:1.8}
+
+/* ── COLORS ── */
+.pal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:36px}
+.pal-grid.three{grid-template-columns:repeat(3,1fr)}
+.col-card{border-radius:16px;overflow:hidden;border:1px solid rgba(255,215,0,0.1)}
+.col-swatch{height:130px}
+.col-info{padding:20px 22px;background:#312E2B}
+.col-name{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(238,236,231,0.45);margin-bottom:7px}
+.col-hex{font-family:var(--serif);font-size:24px;color:#EEECE7;margin-bottom:7px;line-height:1}
+.col-desc{font-size:13px;color:rgba(238,236,231,0.68);line-height:1.7}
+.usage-note{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:13px;padding:26px 30px;font-size:14px;color:rgba(238,236,231,0.72);line-height:1.8;margin-top:20px}
+.usage-note strong{color:#FFD700;font-weight:500}
+
+/* ── TYPE ── */
+.type-block{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:36px 44px;margin-bottom:16px;display:flex;align-items:baseline;gap:36px}
+.type-meta{min-width:130px;flex-shrink:0}
+.type-role{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.33);display:block;margin-bottom:5px}
+.type-spec{font-family:var(--mono);font-size:11px;color:rgba(238,236,231,0.55);line-height:1.7}
+.ts-display{font-family:var(--serif);font-size:60px;font-weight:300;line-height:1}
+.ts-heading{font-family:var(--serif);font-size:36px;font-weight:300;line-height:1.1}
+.ts-sub{font-family:var(--sans);font-size:22px;font-weight:300}
+.ts-body{font-family:var(--sans);font-size:16px;font-weight:300;max-width:520px;line-height:1.8}
+.ts-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.ts-micro{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,236,231,0.5)}
+.pair-demo{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:48px;margin-bottom:36px}
+.pair-hl{font-family:var(--serif);font-size:44px;font-weight:300;line-height:1;margin-bottom:6px}
+.pair-hl em{font-style:italic;color:#FFD700}
+.pair-rule{width:44px;height:1px;background:#FFD700;margin:18px 0}
+.pair-body{font-size:15px;color:rgba(238,236,231,0.62);max-width:580px;line-height:1.85;margin-bottom:22px}
+.pair-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.3)}
+
+/* ── ICONS ── */
+.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.icon-card{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;gap:16px}
+.icon-card svg{width:30px;height:30px}
+.icon-name{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(238,236,231,0.45)}
+.icon-svc{font-size:14px;color:rgba(238,236,231,0.8);line-height:1.6}
+.icon-rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ── PHOTOGRAPHY ── */
+.photo-p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.photo-p{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;overflow:hidden}
+.photo-frame{height:200px;position:relative;display:flex;align-items:flex-end;padding:16px}
+.photo-cap{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,236,231,0.75);text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.photo-p-meta{padding:22px}
+.pn{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#FFD700;margin-bottom:9px;text-transform:uppercase}
+.pt{font-family:var(--serif);font-size:20px;font-weight:300;margin-bottom:8px}
+.pd{font-size:13px;color:rgba(238,236,231,0.62);line-height:1.8}
+.photo-dd{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:36px}
+.do-card,.dont-card{background:#312E2B;border-radius:13px;padding:26px;border:1px solid}
+.do-card{border-color:rgba(255,215,0,0.18)}.dont-card{border-color:rgba(252,54,43,0.18)}
+.do-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#FFD700;margin-bottom:14px}
+.dont-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#FC362B;margin-bottom:14px}
+.dd-list{list-style:none}
+.dd-list li{font-size:13px;color:rgba(238,236,231,0.8);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:9px;line-height:1.7}
+.dd-list.do li::before{content:'→';color:#FFD700;font-family:var(--mono);font-size:11px;flex-shrink:0;margin-top:2px}
+.dd-list.dont li::before{content:'×';color:#FC362B;font-family:var(--mono);font-size:12px;flex-shrink:0}
+.tonal-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.tonal-bar{height:70px;border-radius:9px;display:flex;align-items:flex-end;padding:9px 11px}
+.tonal-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+
+/* ── VOICE ── */
+.voice-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.vp{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:32px 26px}
+.vp-n{font-family:var(--serif);font-size:56px;font-weight:300;color:rgba(255,215,0,0.1);line-height:1;margin-bottom:14px}
+.vp-t{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:6px}
+.vp-s{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#FFD700;margin-bottom:12px}
+.vp-d{font-size:13px;color:rgba(238,236,231,0.62);line-height:1.8}
+.voice-ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vex{border-radius:13px;padding:28px;border:1px solid}
+.vex.do{background:rgba(255,215,0,0.03);border-color:rgba(255,215,0,0.16)}
+.vex.dont{background:rgba(252,54,43,0.03);border-color:rgba(252,54,43,0.14)}
+.vex-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
+.vex.do .vex-lbl{color:#FFD700}.vex.dont .vex-lbl{color:#FC362B}
+.vq{font-family:var(--serif);font-size:17px;font-weight:300;line-height:1.6;color:#EEECE7;margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.vex.dont .vq{color:rgba(238,236,231,0.55)}
+
+/* ── CONTENT ── */
+.fmt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:36px}
+.fmt-card{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:28px}
+.fmt-hd{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fmt-hd svg{width:22px;height:22px;flex-shrink:0}
+.fmt-t{font-family:var(--serif);font-size:20px;font-weight:300}
+.fmt-rules{list-style:none}
+.fmt-rules li{font-size:13px;color:rgba(238,236,231,0.78);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:9px;line-height:1.7}
+.fmt-rules li::before{content:'—';color:rgba(255,215,0,0.45);font-family:var(--mono);flex-shrink:0;font-size:11px;margin-top:3px}
+.banned-wrap{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.banned{background:rgba(252,54,43,0.08);border:1px solid rgba(252,54,43,0.2);border-radius:7px;padding:5px 13px;font-family:var(--mono);font-size:11px;color:rgba(252,54,43,0.88);text-decoration:line-through;text-decoration-color:rgba(252,54,43,0.4)}
+
+/* ── REGIONAL ── */
+.reg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:36px}
+.reg-card{background:#312E2B;border-radius:14px;padding:28px;border:1px solid}
+.reg-card.active{border-color:rgba(255,215,0,0.3)}.reg-card.future{border-color:rgba(238,236,231,0.06);opacity:.72}
+.reg-flag{font-size:26px;margin-bottom:12px}
+.reg-name{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:5px}
+.reg-status{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+.reg-card.active .reg-status{color:#FFD700}.reg-card.future .reg-status{color:rgba(238,236,231,0.45)}
+.reg-attrs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.reg-attr{font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;padding:4px 9px;border-radius:5px;background:rgba(255,255,255,0.04);color:rgba(238,236,231,0.55)}
+.reg-ex{font-family:var(--serif);font-size:15px;font-weight:300;font-style:italic;color:rgba(238,236,231,0.82);line-height:1.6;padding:14px 16px;border-left:2px solid rgba(255,215,0,0.28);margin-top:14px}
+.tone-table{width:100%;border-collapse:collapse;margin-bottom:36px}
+.tone-table th{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.38);text-align:left;padding:11px 14px;border-bottom:1px solid rgba(255,215,0,0.1)}
+.tone-table td{font-size:13px;color:rgba(238,236,231,0.75);padding:13px 14px;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:middle}
+.tone-table tr:last-child td{border-bottom:none}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px}
+.d-hi{background:#FFD700}.d-md{background:rgba(255,215,0,.42)}.d-lo{background:rgba(255,215,0,.14)}
+
+/* ── SERVICES ── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.svc-card{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:14px;padding:28px 24px;transition:border-color .2s}
+.svc-card:hover{border-color:rgba(255,215,0,0.32)}
+.svc-n{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,215,0,0.42);margin-bottom:16px}
+.svc-icon{width:28px;height:28px;margin-bottom:15px}
+.svc-t{font-family:var(--serif);font-size:20px;font-weight:300;margin-bottom:9px}
+.svc-d{font-size:13px;color:rgba(238,236,231,0.62);line-height:1.8}
+
+/* ── STATIONERY ── */
+.stat-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.35);margin-bottom:22px}
+.stat-section{margin-bottom:64px}
+.biz-cards{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:16px}
+.biz-card{width:360px;height:200px;border-radius:11px;position:relative;overflow:hidden;flex-shrink:0}
+.biz-card.dark{background:#252321;border:1px solid rgba(255,215,0,0.13)}
+.biz-card.lt{background:#EEECE7;border:1px solid rgba(37,35,33,0.09)}
+.biz-inner{position:absolute;inset:0;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between}
+.biz-top{display:flex;justify-content:space-between;align-items:flex-start}
+.biz-top svg{width:32px;height:auto}
+.biz-tagline{font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(238,236,231,0.35)}
+.biz-tagline.dark-text{color:rgba(37,35,33,0.45)}
+.biz-bot{display:flex;justify-content:space-between;align-items:flex-end}
+.biz-name{font-family:var(--serif);font-size:17px;font-weight:300;line-height:1.2}
+.biz-name.dark-text{color:#252321}
+.biz-role{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;margin-top:4px}
+.biz-role.dark-text{color:rgba(37,35,33,0.55)}
+.biz-contact{font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;line-height:1.9;text-align:right}
+.biz-contact.dark-text{color:rgba(37,35,33,0.65)}
+.gold-bar{position:absolute;top:0;left:0;right:0;height:2px;background:#FFD700}
+.letterhead{background:#EEECE7;border-radius:11px;overflow:hidden;max-width:660px;border:1px solid rgba(37,35,33,0.09)}
+.lh-head{background:#252321;padding:22px 36px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #FFD700}
+.lh-head svg{width:34px;height:auto}
+.lh-head-r{font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(238,236,231,0.45);text-align:right;line-height:1.8}
+.lh-body{padding:44px 36px;background:#EEECE7}
+.lh-date{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(37,35,33,0.5);margin-bottom:24px}
+.lh-to{font-family:var(--serif);font-size:14px;color:#252321;margin-bottom:24px;line-height:1.6}
+.lh-content{font-size:13px;color:rgba(37,35,33,0.68);line-height:1.9;margin-bottom:32px}
+.lh-sign{font-family:var(--serif);font-size:15px;color:#252321;font-style:italic}
+.lh-foot{padding:14px 36px;background:#252321;display:flex;justify-content:space-between;align-items:center}
+.lh-foot-t{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;color:rgba(238,236,231,0.28);text-transform:uppercase}
+.email-sig{background:#EEECE7;border-radius:11px;padding:26px 28px;max-width:480px;border:1px solid rgba(37,35,33,0.09);border-left:3px solid #FFD700}
+.sig-name{font-family:var(--serif);font-size:19px;font-weight:300;color:#252321;margin-bottom:3px}
+.sig-role{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(37,35,33,0.55);margin-bottom:14px}
+.sig-div{height:1px;background:rgba(37,35,33,0.09);margin:11px 0}
+.sig-contact{font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:rgba(37,35,33,0.65);line-height:1.9}
+.sig-brand{display:flex;align-items:center;gap:9px;margin-top:13px}
+.sig-brand svg{width:22px;height:auto}
+.sig-brand-t{font-family:var(--serif);font-size:13px;font-weight:300;color:#252321}
+
+/* ── FUTURE ── */
+.future-vision{background:#312E2B;border:1px solid rgba(255,215,0,0.13);border-radius:18px;padding:56px;margin-bottom:36px}
+.fv-t{font-family:var(--serif);font-size:34px;font-weight:300;line-height:1.25;max-width:660px;margin-bottom:20px}
+.fv-t em{font-style:italic;color:#FFD700}
+.fv-b{font-size:15px;color:rgba(238,236,231,0.62);max-width:580px;line-height:1.85}
+.fut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.fut-card{background:rgba(49,46,43,0.4);border:1px solid rgba(238,236,231,0.06);border-radius:14px;padding:28px 24px;position:relative}
+.fut-card::before{content:'FUTURE';position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(238,236,231,0.18);text-transform:uppercase}
+.fut-flag{font-size:26px;margin-bottom:12px}
+.fut-name{font-family:var(--serif);font-size:20px;font-weight:300;margin-bottom:5px}
+.fut-tone{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(238,236,231,0.45);margin-bottom:13px}
+.fut-ex{font-family:var(--serif);font-size:13px;font-style:italic;color:rgba(238,236,231,0.55);line-height:1.65;padding:12px 14px;border-left:1px solid rgba(238,236,231,0.1);margin-top:12px}
+.ready-block{background:#312E2B;border:1px solid rgba(255,215,0,0.1);border-radius:13px;padding:32px}
+.ready-t{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#FFD700;margin-bottom:18px}
+.ready-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.ready-list li{font-size:13px;color:rgba(238,236,231,0.78);padding:9px 13px;background:rgba(255,255,255,0.02);border-radius:7px;display:flex;align-items:center;gap:9px}
+.ready-list li::before{content:'✓';color:#FFD700;font-family:var(--mono);font-size:12px}
+
+/* ── PHOTO ATMOSPHERE FRAMES ── */
+.fog-kerala{background:linear-gradient(160deg,#253830 0%,#1e3028 40%,#7aa098 100%)}
+.amber-interior{background:linear-gradient(140deg,#120c05 0%,#2d1a00 45%,#8c5200 100%)}
+.forest-deep{background:linear-gradient(160deg,#0e1f13 0%,#1a3420 55%,#2e5a36 100%)}
+.cinema-blue{background:linear-gradient(160deg,#0c1a2e 0%,#1a2d48 55%,#4870a6 100%)}
+.golden-hour{background:linear-gradient(140deg,#180e02 0%,#3a2200 50%,#b87000 100%)}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav class="sidebar">
+  <div class="sb-logo">
+    <svg viewBox="0 0 280 120" fill="#EEECE7" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+      <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+    </svg>
+    <div class="sb-meta">Twiline Media<br>Brand Book · 2025</div>
+  </div>
+  <ul class="nav-list">
+    <li><a href="#cover" class="active"><span class="nav-num">00</span>Cover</a></li>
+    <li><a href="#logo"><span class="nav-num">01</span>Logo</a></li>
+    <li><a href="#colors"><span class="nav-num">02</span>Colors</a></li>
+    <li><a href="#type"><span class="nav-num">03</span>Type</a></li>
+    <li><a href="#icons"><span class="nav-num">04</span>Icons</a></li>
+    <li><a href="#photography"><span class="nav-num">05</span>Photography</a></li>
+    <li><a href="#voice"><span class="nav-num">06</span>Voice</a></li>
+    <li><a href="#content"><span class="nav-num">07</span>Content</a></li>
+    <li><a href="#regional"><span class="nav-num">08</span>Regional</a></li>
+    <li><a href="#services"><span class="nav-num">09</span>Services</a></li>
+    <li><a href="#stationery"><span class="nav-num">10</span>Stationery</a></li>
+    <li><a href="#future"><span class="nav-num">11</span>Future</a></li>
+  </ul>
+  <div class="sb-foot">© 2025 Twiline Media</div>
+</nav>
+
+<main>
+
+<!-- ═══ 00 COVER ═══ -->
+<section id="cover">
+  <div class="cov-mark">
+    <svg viewBox="0 0 280 120" fill="#EEECE7" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+      <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+    </svg>
+  </div>
+  <div class="cov-hl">
+    Where strategy<br>meets <em>story.</em>
+  </div>
+  <div class="cov-foot">
+    <div class="cov-tag">The thread that connects<br>intention to impact.</div>
+    <div class="cov-ver">Brand Book<br>2025 · v1.0<br>Confidential</div>
+  </div>
+  <div class="scroll-hint"><span class="scroll-line"></span>Scroll to explore</div>
+</section>
+
+<!-- ═══ 01 LOGO ═══ -->
+<section id="logo">
+  <div class="sec-label">01 — Identity</div>
+  <h1 class="sec-title">The<br><em>mark.</em></h1>
+  <p class="desc">A geometric TM monogram constructed from pure right-angle forms. No curves. No decoration. Every pixel earns its place — like the brand it represents.</p>
+
+  <div class="logo-display">
+    <svg viewBox="0 0 280 120" fill="#EEECE7" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+      <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+    </svg>
+  </div>
+
+  <div class="sub-label">Color Variants</div>
+  <div class="logo-vars">
+    <div class="lv dark">
+      <svg viewBox="0 0 280 120" fill="#EEECE7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+        <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+      </svg>
+      <div class="lv-lbl">On Dark</div>
+    </div>
+    <div class="lv light">
+      <svg viewBox="0 0 280 120" fill="#252321" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+        <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+      </svg>
+      <div class="lv-lbl">On Light</div>
+    </div>
+    <div class="lv gold-bg">
+      <svg viewBox="0 0 280 120" fill="#252321" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+        <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+      </svg>
+      <div class="lv-lbl">On Gold</div>
+    </div>
+  </div>
+
+  <div class="sub-label">Usage Rules</div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-card-lbl">Clear Space</div>
+      <p>Maintain a minimum clear space equal to the height of the T nub on all four sides. No other elements inside this zone.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Minimum Size</div>
+      <p>Digital: 32px height minimum. Print: 10mm height minimum. Below these sizes, the mark loses legibility.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Never Do</div>
+      <p>Do not rotate, stretch, recolour, add drop shadows, place on busy backgrounds, or recreate with different geometry.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Approved Colours</div>
+      <p>White (#EEECE7) on dark. Dark (#252321) on light. Dark (#252321) on gold only. No other colour combinations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 COLORS ═══ -->
+<section id="colors">
+  <div class="sec-label">02 — Palette</div>
+  <h1 class="sec-title">Dark editorial.<br><em>Signal gold.</em></h1>
+  <p class="desc">A cinematic identity built on near-black foundations. Gold is the single high-signal accent — reserved for emphasis, CTAs, and moments that must be noticed.</p>
+
+  <div class="sub-label">Foundation</div>
+  <div class="pal-grid">
+    <div class="col-card">
+      <div class="col-swatch" style="background:#252321"></div>
+      <div class="col-info">
+        <div class="col-name">Background Primary</div>
+        <div class="col-hex">#252321</div>
+        <div class="col-desc">Core cinematic dark. The base of all dark-first compositions.</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-swatch" style="background:#312E2B"></div>
+      <div class="col-info">
+        <div class="col-name">Background Secondary</div>
+        <div class="col-hex">#312E2B</div>
+        <div class="col-desc">Depth layer for overlays, cards, and modular surfaces.</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-swatch" style="background:#EEECE7"></div>
+      <div class="col-info">
+        <div class="col-name">Surface Light</div>
+        <div class="col-hex">#EEECE7</div>
+        <div class="col-desc">Premium editorial canvas. Warm off-white with tactile quality.</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-swatch" style="background:#E1DDD6"></div>
+      <div class="col-info">
+        <div class="col-name">Surface Soft</div>
+        <div class="col-hex">#E1DDD6</div>
+        <div class="col-desc">Secondary neutral surface for layered light compositions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Accent System</div>
+  <div class="pal-grid three">
+    <div class="col-card">
+      <div class="col-swatch" style="background:#FFD700"></div>
+      <div class="col-info">
+        <div class="col-name">Accent Primary</div>
+        <div class="col-hex">#FFD700</div>
+        <div class="col-desc">Primary CTA and signal. Use sparingly. Every use must be intentional.</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-swatch" style="background:#FFB200"></div>
+      <div class="col-info">
+        <div class="col-name">Accent Secondary</div>
+        <div class="col-hex">#FFB200</div>
+        <div class="col-desc">Warm amber for gradients, motion, and secondary highlights.</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-swatch" style="background:#FC362B"></div>
+      <div class="col-info">
+        <div class="col-name">Accent Alert</div>
+        <div class="col-hex">#FC362B</div>
+        <div class="col-desc">Reserved for campaign energy, alerts, and emotionally charged moments.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <strong>Gold is earned, not given.</strong> The accent primary (#FFD700) exists to create a single moment of signal in any composition. If everything is gold, nothing is. Limit to one gold element per layout — CTA, rule line, or headline accent. Never use gold as a background fill on large areas.
+  </div>
+</section>
+
+<!-- ═══ 03 TYPE ═══ -->
+<section id="type">
+  <div class="sec-label">03 — Typography</div>
+  <h1 class="sec-title">Three voices.<br><em>One system.</em></h1>
+  <p class="desc">Georgia for editorial authority. Inter for functional clarity. Consolas for precision and data. Each font has a role — they are never interchanged.</p>
+
+  <div class="sub-label">Type Scale</div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Display</span>
+      <div class="type-spec">Georgia<br>60px / 300<br>Leading 1.0</div>
+    </div>
+    <div class="ts-display">Intention.</div>
+  </div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Heading</span>
+      <div class="type-spec">Georgia<br>36px / 300<br>Leading 1.1</div>
+    </div>
+    <div class="ts-heading">Where strategy meets story.</div>
+  </div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Subheading</span>
+      <div class="type-spec">Inter<br>22px / 300<br>Leading 1.4</div>
+    </div>
+    <div class="ts-sub">Built for founders who demand precision.</div>
+  </div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Body</span>
+      <div class="type-spec">Inter<br>16px / 300<br>Leading 1.8<br>Max 18 words/line</div>
+    </div>
+    <div class="ts-body">We don't pad, repeat, or fill. Every element in every deliverable is there for a reason — from a headline to a hex code.</div>
+  </div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Label</span>
+      <div class="type-spec">Consolas<br>11px / 400<br>+0.18em tracking</div>
+    </div>
+    <div class="ts-label">Section Reference · 2025</div>
+  </div>
+  <div class="type-block">
+    <div class="type-meta">
+      <span class="type-role">Micro</span>
+      <div class="type-spec">Consolas<br>9px / 400<br>+0.22em tracking</div>
+    </div>
+    <div class="ts-micro">Confidential · For Internal Use Only · Twiline Media 2025</div>
+  </div>
+
+  <div class="sub-title">Pairing in Practice</div>
+  <div class="pair-demo">
+    <div class="pair-hl">Investors don't fund ideas.<br>They fund <em>conviction.</em></div>
+    <div class="pair-rule"></div>
+    <div class="pair-body">We grew their pipeline by 340% in 90 days. Not through volume — through precision. One brief. One team. One result that compounds.</div>
+    <div class="pair-lbl">Georgia Display + Inter Body + Gold Rule</div>
+  </div>
+
+  <div class="usage-note">
+    <strong>Font pairing rule:</strong> Georgia carries the emotional weight — headlines, pull quotes, hero moments. Inter carries the information — body, labels, UI. Consolas carries the precision — data, metadata, annotations. Never use Georgia for body paragraphs. Never use Consolas for headlines.
+  </div>
+</section>
+
+<!-- ═══ 04 ICONS ═══ -->
+<section id="icons">
+  <div class="sec-label">04 — Iconography</div>
+  <h1 class="sec-title">Grid-built.<br><em>Right-angle.</em></h1>
+  <p class="desc">Icons share the same construction logic as the TM mark — modular, geometric, no curves. Drawn on a 24×24 grid. 1.5px stroke, square caps and joins.</p>
+
+  <div class="sub-label">Service Icons</div>
+  <div class="icon-grid">
+
+    <!-- Digital Marketing -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="14" width="4" height="8"/><rect x="9" y="10" width="4" height="12"/><rect x="16" y="5" width="4" height="17"/>
+        <polyline points="18,2 22,2 22,6"/>
+      </svg>
+      <div class="icon-name">Digital Marketing</div>
+      <div class="icon-svc">Full-funnel strategy. Growth architecture across paid and organic.</div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="5" height="5"/><rect x="9.5" y="2" width="5" height="5"/><rect x="17" y="2" width="5" height="5"/>
+        <rect x="2" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/><rect x="17" y="9.5" width="5" height="5"/>
+        <line x1="4.5" y1="14.5" x2="4.5" y2="22"/><line x1="4.5" y1="22" x2="12" y2="22"/>
+      </svg>
+      <div class="icon-name">Social Media</div>
+      <div class="icon-svc">Content systems built for algorithms and humans. Engagement that converts.</div>
+    </div>
+
+    <!-- Creative Ads -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="4" width="20" height="16"/>
+        <line x1="2" y1="4" x2="6" y2="8"/><line x1="22" y1="4" x2="18" y2="8"/>
+        <line x1="2" y1="20" x2="6" y2="16"/><line x1="22" y1="20" x2="18" y2="16"/>
+        <polygon points="10,9 10,15 16,12" fill="#FFD700" stroke="#FFD700" stroke-width="0"/>
+      </svg>
+      <div class="icon-name">Creative Ads</div>
+      <div class="icon-svc">Cinematic discipline applied to every frame. Ad creative that stops the scroll.</div>
+    </div>
+
+    <!-- Video & Photography -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="14" height="12"/>
+        <polyline points="16,10 22,7 22,17 16,14"/>
+        <rect x="6" y="9" width="5" height="5"/>
+      </svg>
+      <div class="icon-name">Video &amp; Photography</div>
+      <div class="icon-svc">Production with intention. From concept to colour grade — we control the narrative.</div>
+    </div>
+
+    <!-- Branding -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="16" height="16"/>
+        <rect x="8" y="8" width="8" height="8"/>
+        <line x1="4" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="20" y2="12"/>
+        <line x1="12" y1="4" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="20"/>
+      </svg>
+      <div class="icon-name">Branding</div>
+      <div class="icon-svc">Identity systems that hold. Logo, palette, voice, motion — every element coherent.</div>
+    </div>
+
+    <!-- Inbound Marketing -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <line x1="22" y1="2" x2="12" y2="12"/>
+        <polyline points="22,2 16,2 22,8"/>
+        <line x1="2" y1="8" x2="8" y2="8"/>
+        <line x1="2" y1="12" x2="10" y2="12"/>
+        <line x1="2" y1="16" x2="8" y2="16"/>
+      </svg>
+      <div class="icon-name">Inbound Marketing</div>
+      <div class="icon-svc">Content architecture that attracts the right audience and moves them through the funnel.</div>
+    </div>
+
+    <!-- Investor Pitching -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="2" width="14" height="18"/>
+        <line x1="7" y1="7" x2="13" y2="7"/>
+        <line x1="7" y1="11" x2="13" y2="11"/>
+        <line x1="7" y1="15" x2="10" y2="15"/>
+        <polyline points="17,10 19,6 21,9 23,4" stroke="#FFD700"/>
+      </svg>
+      <div class="icon-name">Investor Pitching</div>
+      <div class="icon-svc">Analysis, decks, narratives that secure funding. We know what investors read between the lines.</div>
+    </div>
+
+    <!-- Content Marketing -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <line x1="3" y1="4" x2="21" y2="4"/>
+        <line x1="3" y1="9" x2="16" y2="9"/>
+        <line x1="3" y1="14" x2="21" y2="14"/>
+        <line x1="3" y1="19" x2="12" y2="19"/>
+      </svg>
+      <div class="icon-name">Content Marketing</div>
+      <div class="icon-svc">Long-form content built for authority. Articles, reports, guides that compound over time.</div>
+    </div>
+
+    <!-- Performance Marketing -->
+    <div class="icon-card">
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+        <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+        <rect x="11" y="11" width="2" height="2" fill="#FFD700" stroke="none"/>
+      </svg>
+      <div class="icon-name">Performance Marketing</div>
+      <div class="icon-svc">ROI-obsessed execution across Google, Meta, and beyond. Every rupee tracked.</div>
+    </div>
+
+  </div>
+
+  <div class="sub-label">Icon Construction Rules</div>
+  <div class="icon-rule-grid">
+    <div class="rule-card">
+      <div class="rule-card-lbl">Grid</div>
+      <p>All icons drawn on a 24×24px grid with 2px padding. Stroke weight: 1.5px. Never scale stroke with transform.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Geometry</div>
+      <p>Square line caps. Miter joins. No rounded corners. No decorative curves. The same discipline as the TM mark.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Colour</div>
+      <p>Default: #EEECE7 stroke on dark. #252321 stroke on light. Gold (#FFD700) used for one accent element maximum per icon.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-lbl">Scale</div>
+      <p>24px standard UI. 32px card use. 48px hero use. Never render below 20px — detail is lost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 PHOTOGRAPHY ═══ -->
+<section id="photography">
+  <div class="sec-label">05 — Photography</div>
+  <h1 class="sec-title">Cinematic.<br><em>Atmospheric.</em></h1>
+  <p class="desc">Our photography language is drawn from narrative filmmaking, not commercial photography. Every frame has a point of view. Every shot has emotional weight.</p>
+
+  <div class="sub-label">Five Principles</div>
+  <div class="photo-p-grid">
+    <div class="photo-p">
+      <div class="photo-frame fog-kerala">
+        <div class="photo-cap">Atmospheric depth</div>
+      </div>
+      <div class="photo-p-meta">
+        <div class="pn">01 — Presence</div>
+        <div class="pt">Backs, not faces.</div>
+        <div class="pd">Subjects rarely face the camera. Silhouettes, profiles, partial reveals. Human presence within landscape — not dominating it.</div>
+      </div>
+    </div>
+    <div class="photo-p">
+      <div class="photo-frame amber-interior">
+        <div class="photo-cap">Chiaroscuro light</div>
+      </div>
+      <div class="photo-p-meta">
+        <div class="pn">02 — Light</div>
+        <div class="pt">One source. Total control.</div>
+        <div class="pd">Dramatic contrast between light and shadow. A single strong source — window, sun, lamp. Rim lighting, golden shafts, deep blacks.</div>
+      </div>
+    </div>
+    <div class="photo-p">
+      <div class="photo-frame cinema-blue">
+        <div class="photo-cap">Cinematic depth</div>
+      </div>
+      <div class="photo-p-meta">
+        <div class="pn">03 — Atmosphere</div>
+        <div class="pt">Fog. Mist. Depth.</div>
+        <div class="pd">Multiple depth planes — blurred foreground, mid-ground subject, layered background. Atmosphere is a character in the frame.</div>
+      </div>
+    </div>
+    <div class="photo-p">
+      <div class="photo-frame forest-deep">
+        <div class="photo-cap">Tactile detail</div>
+      </div>
+      <div class="photo-p-meta">
+        <div class="pn">04 — Detail</div>
+        <div class="pt">Texture as narrative.</div>
+        <div class="pd">Extreme close-ups carry emotional weight — hands on grass, an eye through planks, a flower's macro geometry. Physical texture tells the story.</div>
+      </div>
+    </div>
+    <div class="photo-p">
+      <div class="photo-frame golden-hour">
+        <div class="photo-cap">Tonal temperature</div>
+      </div>
+      <div class="photo-p-meta">
+        <div class="pn">05 — Colour</div>
+        <div class="pt">Cool or warm. Never neither.</div>
+        <div class="pd">Either deeply cool (teal/blue/grey) or deeply warm (amber/gold). Not desaturated neutrals. The colour temperature is a deliberate editorial choice.</div>
+      </div>
+    </div>
+    <div class="photo-p" style="background:#312E2B;border:1px solid rgba(255,215,0,0.1)">
+      <div style="padding:22px 22px 0">
+        <div class="pn" style="margin-top:22px">Tonal Palette</div>
+        <div class="pt" style="margin-bottom:12px">Two modes. One brand.</div>
+      </div>
+      <div style="padding:0 22px 22px">
+        <div class="tonal-row" style="grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">
+          <div class="tonal-bar fog-kerala" style="height:60px"><div class="tonal-lbl" style="color:rgba(238,236,231,0.7)">Teal</div></div>
+          <div class="tonal-bar cinema-blue" style="height:60px"><div class="tonal-lbl" style="color:rgba(238,236,231,0.7)">Slate</div></div>
+          <div class="tonal-bar forest-deep" style="height:60px"><div class="tonal-lbl" style="color:rgba(238,236,231,0.7)">Forest</div></div>
+        </div>
+        <div class="tonal-row" style="grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:0">
+          <div class="tonal-bar golden-hour" style="height:60px"><div class="tonal-lbl" style="color:rgba(238,236,231,0.7)">Amber</div></div>
+          <div class="tonal-bar amber-interior" style="height:60px"><div class="tonal-lbl" style="color:rgba(238,236,231,0.7)">Char</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Do / Don't</div>
+  <div class="photo-dd">
+    <div class="do-card">
+      <div class="do-lbl">Shoot like this</div>
+      <ul class="dd-list do">
+        <li>Subject facing away or in profile, integrated into environment</li>
+        <li>Fog, mist, or haze creating atmospheric depth</li>
+        <li>Dramatic single light source — window, sunrise, streetlamp</li>
+        <li>Cinematic aspect ratios — 16:9, 2.39:1 letterbox</li>
+        <li>Macro tactile close-ups — hands, eyes, texture, grain</li>
+        <li>Human figure small within a large landscape</li>
+        <li>Cool teal or warm amber — committed to one temperature</li>
+      </ul>
+    </div>
+    <div class="dont-card">
+      <div class="dont-lbl">Never this</div>
+      <ul class="dd-list dont">
+        <li>Direct-to-camera smiling product shots</li>
+        <li>Flat even lighting — studio white background photography</li>
+        <li>Oversaturated or HDR-processed images</li>
+        <li>Stock photography clichés — handshakes, laptops in cafes</li>
+        <li>Split toning that reads as Instagram filter</li>
+        <li>Text overlaid on busy imagery without contrast control</li>
+        <li>Mixed colour temperatures in the same campaign</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 VOICE ═══ -->
+<section id="voice">
+  <div class="sec-label">06 — Brand Voice</div>
+  <h1 class="sec-title">How Twiline<br><em>speaks.</em></h1>
+  <p class="desc">Three qualities. Consistent across every market, every format, every touchpoint. The register adapts — the character never does.</p>
+
+  <div class="voice-pillars">
+    <div class="vp">
+      <div class="vp-n">01</div>
+      <div class="vp-t">Precise</div>
+      <div class="vp-s">Direct &amp; clear</div>
+      <div class="vp-d">Every sentence earns its place. We say exactly what we mean — with enough specificity to be trusted, enough clarity to be remembered. No padding, no filler, no buzzwords.</div>
+    </div>
+    <div class="vp">
+      <div class="vp-n">02</div>
+      <div class="vp-t">Cinematic</div>
+      <div class="vp-s">Visual thinkers</div>
+      <div class="vp-d">We bring the discipline of filmmaking to marketing. Composition, contrast, pacing — the same principles that make a great shot make a great ad. We see frames, not just content.</div>
+    </div>
+    <div class="vp">
+      <div class="vp-n">03</div>
+      <div class="vp-t">Trusted</div>
+      <div class="vp-s">Authority + warmth</div>
+      <div class="vp-d">We speak with the confidence of a strategic partner, not a vendor. We back opinions with data, speak plainly about results, and never oversell. Our clients grow because we do.</div>
+    </div>
+  </div>
+
+  <div class="sub-label">Write Like This / Not Like This</div>
+  <div class="voice-ex">
+    <div class="vex do">
+      <div class="vex-lbl">Write like this</div>
+      <div class="vq">"Your audience is paying attention. Are you?"</div>
+      <div class="vq">"We grew their pipeline by 340% in 90 days. Here's the playbook."</div>
+      <div class="vq">"Investors don't fund ideas. They fund conviction."</div>
+      <div class="vq">"One brief. One team. One result that compounds."</div>
+    </div>
+    <div class="vex dont">
+      <div class="vex-lbl">Not like this</div>
+      <div class="vq">"We are a passionate team of creative professionals dedicated to synergistic growth solutions."</div>
+      <div class="vq">"Leveraging cutting-edge AI-powered disruptive paradigms to unlock holistic value."</div>
+      <div class="vq">"We are super excited to announce our amazing new offering!!!"</div>
+      <div class="vq">"End-to-end full-funnel integrated omnichannel digital transformation."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 CONTENT ═══ -->
+<section id="content">
+  <div class="sec-label">07 — Content Rules</div>
+  <h1 class="sec-title">Global rules.<br><em>Every format.</em></h1>
+  <p class="desc">Format-specific rules that govern how Twiline communicates across every channel. These rules are not guidelines — they are the standard.</p>
+
+  <div class="fmt-grid">
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="3" y="3" width="18" height="18" rx="0"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+        <div class="fmt-t">Social Posts</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>Hook in line 1 — earn the expand before anything else</li>
+        <li>One idea per post — never dilute with secondary messages</li>
+        <li>End with a question or a provocative statement</li>
+        <li>Max 3 targeted hashtags — no hashtag walls</li>
+        <li>Sentence max: 18 words</li>
+      </ul>
+    </div>
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="2" y="4" width="20" height="16"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <div class="fmt-t">Ad Copy</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>Problem in headline — not the solution</li>
+        <li>Proof in body — specific number or concrete descriptor</li>
+        <li>CTA in gold — every ad answers "what changes if I click?" in 3 seconds</li>
+        <li>Headline: 6–10 words max</li>
+        <li>Never start body copy with "We"</li>
+      </ul>
+    </div>
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="4" y="2" width="16" height="20"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
+        <div class="fmt-t">Proposals</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>Lead with the client's problem — not Twiline's capabilities</li>
+        <li>Capabilities are proof, not pitch</li>
+        <li>Close with next steps, not features</li>
+        <li>One clear ask per proposal</li>
+        <li>No more than 2 pages for initial outreach</li>
+      </ul>
+    </div>
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="2" y="4" width="20" height="16"/><polyline points="2,4 12,13 22,4"/></svg>
+        <div class="fmt-t">Email</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>Subject line: max 7 words, no clickbait</li>
+        <li>One primary CTA per email — never two</li>
+        <li>Cold outreach: 3 short paragraphs maximum</li>
+        <li>Never open with "I hope this email finds you well"</li>
+        <li>Plain text preferred over heavy HTML for cold email</li>
+      </ul>
+    </div>
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="2" y="4" width="20" height="16"/><polyline points="8,10 12,14 16,10"/></svg>
+        <div class="fmt-t">Video Scripts</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>Hook: first 3 seconds — no exceptions</li>
+        <li>Conflict: seconds 4–15</li>
+        <li>Resolution + CTA: final 5 seconds</li>
+        <li>Reading pace: 130 words per minute</li>
+        <li>Write for ears, not eyes — short sentences, no jargon</li>
+      </ul>
+    </div>
+    <div class="fmt-card">
+      <div class="fmt-hd">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="square"><rect x="2" y="3" width="20" height="18"/><line x1="8" y1="3" x2="8" y2="21"/><polyline points="12,8 18,8"/><polyline points="12,12 18,12"/><polyline points="12,16 15,16"/></svg>
+        <div class="fmt-t">Investor Decks</div>
+      </div>
+      <ul class="fmt-rules">
+        <li>One idea per slide — no paragraph-heavy slides</li>
+        <li>Narrative arc: problem → insight → solution → proof → ask</li>
+        <li>Data in charts, not tables</li>
+        <li>The ask slide must name a specific number</li>
+        <li>Max 12 slides for seed/Series A decks</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-label">Globally Banned Words</div>
+  <p class="desc" style="margin-bottom:12px">These words are prohibited across all Twiline content in all markets. No exceptions.</p>
+  <div class="banned-wrap">
+    <span class="banned">Synergy</span>
+    <span class="banned">Leverage</span>
+    <span class="banned">Disruptive</span>
+    <span class="banned">Holistic</span>
+    <span class="banned">End-to-end</span>
+    <span class="banned">Omnichannel</span>
+    <span class="banned">Cutting-edge</span>
+    <span class="banned">Best-in-class</span>
+    <span class="banned">World-class</span>
+    <span class="banned">Passionate</span>
+    <span class="banned">Going forward</span>
+    <span class="banned">Circle back</span>
+    <span class="banned">Take it offline</span>
+    <span class="banned">Learnings</span>
+    <span class="banned">Pan-India presence</span>
+    <span class="banned">We understand the Indian market</span>
+  </div>
+</section>
+
+<!-- ═══ 08 REGIONAL ═══ -->
+<section id="regional">
+  <div class="sec-label">08 — Regional Voice</div>
+  <h1 class="sec-title">One brand.<br><em>Many voices.</em></h1>
+  <p class="desc">The Twiline brand voice is globally consistent — precise, cinematic, trusted. Formality and cultural register adapt per region. The core never changes.</p>
+
+  <div class="sub-label">Active Markets</div>
+  <div class="reg-grid">
+    <div class="reg-card active">
+      <div class="reg-flag">🇮🇳</div>
+      <div class="reg-name">India — Metro</div>
+      <div class="reg-status">Active · Tier-1 Cities</div>
+      <div class="reg-attrs">
+        <span class="reg-attr">Direct</span>
+        <span class="reg-attr">Peer-to-peer</span>
+        <span class="reg-attr">₹ ARR MoM</span>
+        <span class="reg-attr">English</span>
+      </div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.7);line-height:1.8">Bengaluru, Mumbai, Delhi, Chennai. Founders and marketing leads in metros expect peer-to-peer communication. Reference Indian business metrics. No colonial or aspirational-Western framing.</p>
+      <div class="reg-ex">"Your next funding round needs more than a deck. It needs a story investors believe before slide two."</div>
+    </div>
+    <div class="reg-card active">
+      <div class="reg-flag">🇮🇳</div>
+      <div class="reg-name">India — Tier 2</div>
+      <div class="reg-status">Active · Regional Cities</div>
+      <div class="reg-attrs">
+        <span class="reg-attr">Warmer</span>
+        <span class="reg-attr">Relationship-first</span>
+        <span class="reg-attr">Hindi phrases welcome</span>
+      </div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.7);line-height:1.8">Coimbatore, Kochi, Hyderabad, Pune. Business culture values trust and long-term partnership. Lead with understanding of their world, then the offer. ROI framing comes second.</p>
+      <div class="reg-ex">"Ek solid campaign se bahut kuch badal sakta hai. Bas sahi angle chahiye."</div>
+    </div>
+    <div class="reg-card active" style="grid-column:1/-1">
+      <div class="reg-flag">🌴</div>
+      <div class="reg-name">Kerala</div>
+      <div class="reg-status">Active · Home-Adjacent · Coimbatore Base</div>
+      <div class="reg-attrs">
+        <span class="reg-attr">Manglish</span>
+        <span class="reg-attr">Malayalam Script</span>
+        <span class="reg-attr">Storytelling over selling</span>
+        <span class="reg-attr">NRI connections</span>
+        <span class="reg-attr">Noto Sans Malayalam</span>
+      </div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.7);line-height:1.8;margin-bottom:10px">Social: Conversational Manglish. English tech terms (brand, content, strategy, ROI) stay in English. Malayalam connects the logic. Never force-translate technical terms. Video: storytelling over selling, personal voice, gentle humour. Proposals: English, warm register — reference local market, NRI economy.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="reg-ex">നിങ്ങളുടെ brand-ന് ഒരു real story വേണം. Twiline ആ story പറഞ്ഞുതരും.</div>
+        <div class="reg-ex">"Kerala's business landscape is changing faster than most realise. The brands that establish a strong digital identity in the next 18 months will own the conversation for the next decade."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Tone Matrix</div>
+  <table class="tone-table">
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th>Status</th>
+        <th>Formality</th>
+        <th>Warmth</th>
+        <th>Urgency</th>
+        <th>Key References</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🇮🇳 India — Metro</td>
+        <td style="color:#FFD700;font-family:var(--mono);font-size:10px;letter-spacing:.1em">Active</td>
+        <td><span class="dot d-md"></span><span class="dot d-md"></span><span class="dot d-lo"></span> Medium</td>
+        <td><span class="dot d-hi"></span><span class="dot d-hi"></span><span class="dot d-md"></span> High</td>
+        <td><span class="dot d-hi"></span><span class="dot d-md"></span><span class="dot d-lo"></span> Med-High</td>
+        <td style="font-family:var(--mono);font-size:10px">₹ · ARR · GST · Startup India</td>
+      </tr>
+      <tr>
+        <td>🌴 Kerala</td>
+        <td style="color:#FFD700;font-family:var(--mono);font-size:10px;letter-spacing:.1em">Active</td>
+        <td><span class="dot d-lo"></span><span class="dot d-md"></span><span class="dot d-lo"></span> Low-Med</td>
+        <td><span class="dot d-hi"></span><span class="dot d-hi"></span><span class="dot d-hi"></span> Very High</td>
+        <td><span class="dot d-md"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Medium</td>
+        <td style="font-family:var(--mono);font-size:10px">Manglish · NRI · Malayalam script</td>
+      </tr>
+      <tr>
+        <td>🇦🇪 UAE</td>
+        <td style="color:rgba(238,236,231,0.35);font-family:var(--mono);font-size:10px;letter-spacing:.1em">Future</td>
+        <td><span class="dot d-hi"></span><span class="dot d-hi"></span><span class="dot d-hi"></span> High</td>
+        <td><span class="dot d-md"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Medium</td>
+        <td><span class="dot d-lo"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Low</td>
+        <td style="font-family:var(--mono);font-size:10px">AED · Vision 2031 · Arabic (verified only)</td>
+      </tr>
+      <tr>
+        <td>🇨🇦 Canada</td>
+        <td style="color:rgba(238,236,231,0.35);font-family:var(--mono);font-size:10px;letter-spacing:.1em">Future</td>
+        <td><span class="dot d-md"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Medium</td>
+        <td><span class="dot d-hi"></span><span class="dot d-hi"></span><span class="dot d-hi"></span> Very High</td>
+        <td><span class="dot d-lo"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Low</td>
+        <td style="font-family:var(--mono);font-size:10px">CAD · PIPEDA · multicultural</td>
+      </tr>
+      <tr>
+        <td>🇬🇧 United Kingdom</td>
+        <td style="color:rgba(238,236,231,0.35);font-family:var(--mono);font-size:10px;letter-spacing:.1em">Future</td>
+        <td><span class="dot d-hi"></span><span class="dot d-md"></span><span class="dot d-lo"></span> Med-High</td>
+        <td><span class="dot d-md"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Medium</td>
+        <td><span class="dot d-lo"></span><span class="dot d-lo"></span><span class="dot d-lo"></span> Very Low</td>
+        <td style="font-family:var(--mono);font-size:10px">£ · ICO/GDPR · understatement</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ 09 SERVICES ═══ -->
+<section id="services">
+  <div class="sec-label">09 — Services</div>
+  <h1 class="sec-title">Nine disciplines.<br><em>One commitment.</em></h1>
+  <p class="desc">Every service is part of a coherent whole. Clients can engage one discipline or all nine — the strategic framework remains consistent across every engagement.</p>
+
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-n">01</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="2" y="14" width="4" height="8"/><rect x="9" y="10" width="4" height="12"/><rect x="16" y="5" width="4" height="17"/><polyline points="18,2 22,2 22,6"/></svg>
+      <div class="svc-t">Digital Marketing</div>
+      <div class="svc-d">Full-funnel strategy across paid and organic. We architect growth — not just visibility.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">02</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="2" y="2" width="5" height="5"/><rect x="9.5" y="2" width="5" height="5"/><rect x="17" y="2" width="5" height="5"/><rect x="2" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/><rect x="17" y="9.5" width="5" height="5"/><line x1="4.5" y1="14.5" x2="4.5" y2="22"/><line x1="4.5" y1="22" x2="12" y2="22"/></svg>
+      <div class="svc-t">Social Media</div>
+      <div class="svc-d">Content systems built for algorithms and humans. Engagement that converts, not just entertains.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">03</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="2" y="4" width="20" height="16"/><line x1="2" y1="4" x2="6" y2="8"/><line x1="22" y1="4" x2="18" y2="8"/><line x1="2" y1="20" x2="6" y2="16"/><line x1="22" y1="20" x2="18" y2="16"/><polygon points="10,9 10,15 16,12" fill="#FFD700" stroke="#FFD700" stroke-width="0"/></svg>
+      <div class="svc-t">Creative Ads</div>
+      <div class="svc-d">Ad creative that stops the scroll. Cinematic discipline applied to every frame, every second.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">04</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="2" y="6" width="14" height="12"/><polyline points="16,10 22,7 22,17 16,14"/><rect x="6" y="9" width="5" height="5"/></svg>
+      <div class="svc-t">Video &amp; Photography</div>
+      <div class="svc-d">Production with intention. From concept to colour grade — we control the narrative.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">05</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="16" height="16"/><rect x="8" y="8" width="8" height="8"/><line x1="4" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
+      <div class="svc-t">Branding</div>
+      <div class="svc-d">Identity systems that hold. Logo, palette, voice, motion — every element coherent and alive.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">06</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><line x1="22" y1="2" x2="12" y2="12"/><polyline points="22,2 16,2 22,8"/><line x1="2" y1="8" x2="8" y2="8"/><line x1="2" y1="12" x2="10" y2="12"/><line x1="2" y1="16" x2="8" y2="16"/></svg>
+      <div class="svc-t">Inbound Marketing</div>
+      <div class="svc-d">Content architecture that attracts the right audience and moves them through the funnel.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">07</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="2" width="14" height="18"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="11" x2="13" y2="11"/><line x1="7" y1="15" x2="10" y2="15"/><polyline points="17,10 19,6 21,9 23,4" stroke="#FFD700"/></svg>
+      <div class="svc-t">Investor Pitching</div>
+      <div class="svc-d">Analysis, decks, narratives that secure funding. We know what investors read between the lines.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">08</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="4" x2="21" y2="4"/><line x1="3" y1="9" x2="16" y2="9"/><line x1="3" y1="14" x2="21" y2="14"/><line x1="3" y1="19" x2="12" y2="19"/></svg>
+      <div class="svc-t">Content Marketing</div>
+      <div class="svc-d">Long-form content built for authority. Articles, reports, guides that compound over time.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">09</div>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="#EEECE7" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><rect x="11" y="11" width="2" height="2" fill="#FFD700" stroke="none"/></svg>
+      <div class="svc-t">Performance Marketing</div>
+      <div class="svc-d">ROI-obsessed execution across Google, Meta, and beyond. Every rupee tracked, every signal optimised.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10 STATIONERY ═══ -->
+<section id="stationery">
+  <div class="sec-label">10 — Stationery</div>
+  <h1 class="sec-title">Every touchpoint.<br><em>Intentional.</em></h1>
+  <p class="desc">Physical and digital stationery extends the brand into every client interaction. Consistency here signals the same precision we bring to campaigns.</p>
+
+  <!-- Business Card -->
+  <div class="stat-section">
+    <div class="stat-lbl">Business Card — Front &amp; Back</div>
+    <div class="biz-cards">
+      <!-- Front: Dark -->
+      <div class="biz-card dark">
+        <div class="gold-bar"></div>
+        <div class="biz-inner">
+          <div class="biz-top">
+            <svg viewBox="0 0 280 120" fill="#EEECE7">
+              <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+              <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+            </svg>
+            <div class="biz-tagline">Twiline Media</div>
+          </div>
+          <div class="biz-bot">
+            <div>
+              <div class="biz-name">Nikhil Kumar</div>
+              <div class="biz-role" style="color:rgba(255,215,0,0.7)">Founder &amp; Creative Director</div>
+            </div>
+            <div class="biz-contact">
+              twilinemedia.com<br>
+              hello@twilinemedia.com
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Back: Light -->
+      <div class="biz-card lt">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#FFB200"></div>
+        <div class="biz-inner">
+          <div class="biz-top">
+            <svg viewBox="0 0 280 120" fill="#252321">
+              <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+              <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+            </svg>
+            <div class="biz-tagline dark-text">The thread that connects<br>intention to impact.</div>
+          </div>
+          <div class="biz-bot">
+            <div>
+              <div class="biz-name dark-text">Strategy · Story · Impact</div>
+              <div class="biz-role dark-text">twilinemedia.com</div>
+            </div>
+            <div class="biz-contact dark-text">+91 ××× ××× ××××<br>Coimbatore, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="usage-note" style="max-width:740px">
+      <strong>Spec:</strong> 90 × 50mm · 400gsm matte black stock (front) · Uncoated cream stock (back) · Foil stamp the gold bar and TM mark on front · Letterpress impression on back.
+    </div>
+  </div>
+
+  <!-- Letterhead -->
+  <div class="stat-section">
+    <div class="stat-lbl">Letterhead — A4</div>
+    <div class="letterhead">
+      <div class="lh-head">
+        <svg viewBox="0 0 280 120" fill="#EEECE7" style="width:34px">
+          <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+          <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+        </svg>
+        <div class="lh-head-r">
+          Twiline Media<br>
+          twilinemedia.com<br>
+          Coimbatore, India
+        </div>
+      </div>
+      <div class="lh-body">
+        <div class="lh-date">24 May 2025</div>
+        <div class="lh-to">
+          To: [Client Name]<br>
+          [Company], [City]
+        </div>
+        <div class="lh-content">
+          Dear [Name],<br><br>
+          Your brand has a story worth telling. The question is whether the right audience is hearing it — and whether it's moving them the way it should.<br><br>
+          We'd like to show you exactly what that looks like for [Company]. One campaign. One clear strategy. One result you can measure.
+        </div>
+        <div class="lh-sign">Twiline Media</div>
+      </div>
+      <div class="lh-foot">
+        <div class="lh-foot-t">Twiline Media · Confidential</div>
+        <div class="lh-foot-t">twilinemedia.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Signature -->
+  <div class="stat-section">
+    <div class="stat-lbl">Email Signature</div>
+    <div class="email-sig">
+      <div class="sig-name">Nikhil Kumar</div>
+      <div class="sig-role">Founder &amp; Creative Director</div>
+      <div class="sig-div"></div>
+      <div class="sig-contact">
+        hello@twilinemedia.com<br>
+        +91 ××× ××× ××××<br>
+        twilinemedia.com
+      </div>
+      <div class="sig-brand">
+        <svg viewBox="0 0 280 120" fill="#252321" style="width:22px">
+          <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+          <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+        </svg>
+        <div class="sig-brand-t">Twiline Media</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11 FUTURE ═══ -->
+<section id="future">
+  <div class="sec-label">11 — Future</div>
+  <h1 class="sec-title">Ready before<br><em>expansion.</em></h1>
+  <p class="desc">Future markets are documented now — not when expansion happens. The brand voice, tone, and cultural register for each market is established and waiting. We arrive prepared, not reactive.</p>
+
+  <div class="future-vision">
+    <div class="fv-t">The brands that define their <em>voice across borders</em> before they cross them — own the market when they arrive.</div>
+    <div class="fv-b">Twiline's current focus is India — pan-India, with Kerala as the home-adjacent priority. Every future market listed below has its tone calibrated, its cultural register understood, and its content rules defined. When the time comes, we don't build from scratch. We execute.</div>
+  </div>
+
+  <div class="sub-label">Future Markets</div>
+  <div class="fut-grid">
+    <div class="fut-card">
+      <div class="fut-flag">🇦🇪</div>
+      <div class="fut-name">UAE &amp; Middle East</div>
+      <div class="fut-tone">High formality · Medium warmth · Low urgency · AED · Vision 2031</div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.65);line-height:1.8">Formal, aspirational, relationship-first. UAE business culture values prestige and long-term positioning. Build authority slowly — earn trust first. Arabic only with native verification.</p>
+      <div class="fut-ex">"In a region building its next decade, your brand's position today determines where you stand when the market matures."</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-flag">🇨🇦</div>
+      <div class="fut-name">Canada</div>
+      <div class="fut-tone">Medium formality · Very high warmth · Low urgency · CAD · PIPEDA</div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.65);line-height:1.8">Warm-direct. American directness meets British politeness. Inclusive framing resonates strongly — diversity and community impact. Warmth matters more than urgency.</p>
+      <div class="fut-ex">"Growth doesn't have to feel aggressive. The best campaigns start with a simple question: what do your customers actually need to hear?"</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-flag">🇬🇧</div>
+      <div class="fut-name">United Kingdom</div>
+      <div class="fut-tone">Med-high formality · Dry wit · Very low urgency · £ · ICO/GDPR</div>
+      <p style="font-size:13px;color:rgba(238,236,231,0.65);line-height:1.8">Understatement and dry wit. Overpromising reads as gauche. Prove through case study, not claim. Self-deprecating precision is more trusted than confident assertion.</p>
+      <div class="fut-ex">"We don't promise transformation. We deliver campaigns that work — which, frankly, is rarer than it should be."</div>
+    </div>
+  </div>
+
+  <div class="sub-label">Brand Readiness Checklist</div>
+  <div class="ready-block">
+    <div class="ready-t">What we have ready, right now</div>
+    <ul class="ready-list">
+      <li>Voice and tone documented for all future markets</li>
+      <li>Cultural register calibrated per region</li>
+      <li>Banned phrase list localised for India</li>
+      <li>Malayalam and Manglish content rules defined</li>
+      <li>Tone matrix covering formality, warmth, urgency</li>
+      <li>Currency and legal references noted per market</li>
+      <li>Typography system supports Malayalam script</li>
+      <li>Icon system is culture-neutral and globally legible</li>
+      <li>Photography direction works across all markets</li>
+      <li>Colour palette requires no regional adaptation</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,215,0,0.1);display:flex;justify-content:space-between;align-items:flex-end">
+    <div>
+      <div style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:6px">Twiline Media</div>
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,236,231,0.35)">Brand Book · 2025 · v1.0</div>
+    </div>
+    <svg viewBox="0 0 280 120" fill="rgba(238,236,231,0.12)" style="width:80px">
+      <path d="M 20,18 L 50,18 L 50,46 L 98,46 L 98,72 L 50,72 L 50,102 L 20,102 Z"/>
+      <path d="M 110,46 L 260,46 L 260,102 L 222,102 L 222,72 L 148,72 L 148,102 L 110,102 Z"/>
+    </svg>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('main section');
+const navLinks = document.querySelectorAll('.nav-list a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
