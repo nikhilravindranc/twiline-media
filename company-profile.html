@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twiline Media — Company Profile</title>
+  <title>Twiline Media - Company Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Malayalam:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,8 +13,6 @@
       --bg: #F8F7F4;
       --bg-2: #EEECE7;
       --dark: #252321;
-      --dark-2: #312E2B;
-      --dark-3: #1a1816;
       --gold: #FFD700;
       --gold-ui: #C9A800;
       --text: #252321;
@@ -22,7 +20,6 @@
       --border: rgba(37,35,33,0.10);
       --ff-serif: Georgia, 'Times New Roman', serif;
       --ff-sans: Inter, Arial, sans-serif;
-      --ff-mono: Consolas, 'Courier New', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,37 +27,42 @@
       font-family: var(--ff-sans);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2.5rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
 
     /* Header */
     header {
-      padding: 4rem 0;
+      padding: 3.5rem 0;
       border-bottom: 1px solid var(--border);
-      text-align: center;
     }
 
-    .logo { height: 60px; margin-bottom: 1.5rem; }
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-section img { height: 50px; width: auto; }
 
     h1 {
       font-family: var(--ff-serif);
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       font-weight: normal;
       margin-bottom: 0.5rem;
-      color: var(--dark);
     }
 
     .tagline {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--muted);
       font-style: italic;
     }
 
     /* Section */
     section {
-      padding: 4rem 0;
+      padding: 3.5rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -68,7 +70,7 @@
 
     h2 {
       font-family: var(--ff-serif);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: normal;
       margin-bottom: 1.5rem;
       color: var(--dark);
@@ -76,8 +78,7 @@
 
     h3 {
       font-family: var(--ff-serif);
-      font-size: 1.3rem;
-      margin-top: 1.5rem;
+      font-size: 1.2rem;
       margin-bottom: 0.75rem;
       color: var(--dark);
     }
@@ -89,74 +90,115 @@
       color: var(--text);
     }
 
-    /* About Grid */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .about-block h3 { color: var(--dark); }
-
-    /* Pillars */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 2rem;
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--text);
     }
 
-    .pillar-card {
-      padding: 2rem;
-      background: var(--bg-2);
-      border-left: 3px solid var(--gold);
-    }
-
-    .pillar-card h3 { margin-top: 0; color: var(--gold-ui); }
-
-    /* Services */
+    /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
 
-    .service-item {
+    .service-box {
       padding: 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      background: var(--bg-2);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
     }
 
-    .service-item h4 {
+    .service-box h4 {
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--dark);
       margin-bottom: 0.5rem;
     }
 
-    .service-item p {
+    .service-box p {
       font-size: 0.9rem;
       color: var(--muted);
       margin: 0;
     }
 
-    /* Regional */
-    .regional-highlight {
-      background: #E8E3D9;
-      padding: 2rem;
-      border-radius: 8px;
+    /* Clients */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
       margin-top: 2rem;
     }
 
-    .regional-highlight h3 { margin-top: 0; color: var(--dark); }
+    .client-card {
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: white;
+    }
 
-    /* Contact */
-    .contact-info {
+    .client-card h3 {
+      margin-top: 0;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+
+    .client-location {
+      font-size: 0.9rem;
+      color: var(--gold-ui);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .client-services {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .client-highlight {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .social-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .social-link a {
+      color: var(--gold-ui);
+      text-decoration: none;
+    }
+
+    .social-link a:hover { text-decoration: underline; }
+
+    /* Industry Focus */
+    .focus-box {
+      background: #E8E3D9;
+      padding: 2rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
+
+    .focus-box h3 { margin-top: 0; }
+
+    /* Contact Section */
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
       margin-top: 2rem;
     }
 
@@ -166,8 +208,23 @@
       border-radius: 6px;
     }
 
-    .contact-block strong { color: var(--dark); }
-    .contact-block p { margin: 0.5rem 0 0; }
+    .contact-label {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .contact-value a {
+      color: var(--gold-ui);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover { text-decoration: underline; }
 
     /* Footer */
     footer {
@@ -178,17 +235,16 @@
       font-size: 0.9rem;
     }
 
-    .gold-accent { color: var(--gold-ui); }
-
     /* Responsive */
     @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
+      h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
-      .about-grid, .contact-info { grid-template-columns: 1fr; }
-      .pillars-grid, .services-grid { grid-template-columns: 1fr; }
+      .services-grid, .clients-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .logo-section { flex-direction: column; align-items: flex-start; }
+      header, section { padding: 2.5rem 0; }
       .container { padding: 0 1.5rem; }
-      section { padding: 2.5rem 0; }
-      header { padding: 2.5rem 0; }
     }
   </style>
 </head>
@@ -196,11 +252,13 @@
 
 <header>
   <div class="container">
-    <div class="logo">
-      <img src="./assets/logo-black.png" alt="Twiline Media" style="height: 60px; width: auto;">
+    <div class="logo-section">
+      <img src="./assets/logo-black.png" alt="Twiline Media">
+      <div>
+        <h1>Twiline Media</h1>
+        <p class="tagline">The thread that connects intention to impact.</p>
+      </div>
     </div>
-    <h1>Twiline Media</h1>
-    <p class="tagline">The thread that connects intention to impact.</p>
   </div>
 </header>
 
@@ -208,160 +266,155 @@
 
   <!-- About Section -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>Twiline Media is a creative agency built for South India's boldest brands. We don't translate playbooks — we build campaigns from the ground up, rooted in Indian ambition, Indian timelines, and Indian business realities.</p>
-
-    <div class="about-grid">
-      <div class="about-block">
-        <h3>Our Mission</h3>
-        <p>We saw a gap in the market: no creative agency brings all nine disciplines under one roof. Instead of bouncing between vendors, we sit alongside your brand from day one — strategy through execution, integrated, owned, and measured.</p>
-      </div>
-      <div class="about-block">
-        <h3>Our Approach</h3>
-        <p>Every deliverable — from a single ad to a full brand system — is engineered to move people toward a decision. We don't do templates. We don't do guesswork. We do the work that earns attention and holds it.</p>
-      </div>
-    </div>
+    <h2>About Twiline Media</h2>
+    <p>Twiline Media is a creative agency focused on helping startups grow with qualified leads and strong market positioning. We specialize in building brands from scratch, scaling in volatile markets, and delivering measurable results through digital-first strategies.</p>
+    <p>We don't do templates. We work closely with founders and emerging brands to understand their market, their ambition, and their timeline. Our approach: integrated strategy, precise execution, and measurable outcomes.</p>
   </section>
 
-  <!-- Core Values -->
-  <section id="values">
-    <h2>Core Pillars</h2>
-    <p>Three principles guide every project, every decision, every execution:</p>
-
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <h3>Strategy</h3>
-        <p>Decisions rooted in intent — every move tied to a measurable outcome. We think before we build.</p>
-      </div>
-      <div class="pillar-card">
-        <h3>Craft</h3>
-        <p>Every asset built with the discipline of a studio, not the speed of a factory. Form and function, perfectly balanced.</p>
-      </div>
-      <div class="pillar-card">
-        <h3>Trust</h3>
-        <p>We say what we mean, deliver what we promise, and measure what matters. Your partner, not a vendor.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
+  <!-- Services Section -->
   <section id="services">
-    <h2>Nine Disciplines. One Standard.</h2>
-    <p>Everything you need under one roof, delivered with consistency and precision:</p>
+    <h2>Our Services</h2>
+    <p>We deliver across nine core disciplines to meet the full scope of modern brand building.</p>
 
     <div class="services-grid">
-      <div class="service-item">
+      <div class="service-box">
         <h4>Digital Marketing</h4>
-        <p>Full-funnel awareness and conversion across all channels.</p>
+        <p>Full-funnel awareness and lead generation across channels</p>
       </div>
-      <div class="service-item">
-        <h4>Social Media Marketing</h4>
-        <p>Content systems and algorithmic thinking for engagement at scale.</p>
+      <div class="service-box">
+        <h4>Meta Ads & Social</h4>
+        <p>Facebook and Instagram campaigns designed for qualified lead conversion</p>
       </div>
-      <div class="service-item">
-        <h4>Creative Ads</h4>
-        <p>Scroll-stopping, cinematic, performance-driven creative.</p>
-      </div>
-      <div class="service-item">
-        <h4>Video & Photography</h4>
-        <p>Concept, direction, and colour grade — cinema applied to commerce.</p>
-      </div>
-      <div class="service-item">
+      <div class="service-box">
         <h4>Branding</h4>
-        <p>Logo, palette, voice, and motion. Identity that sticks.</p>
+        <p>Identity, voice, and positioning for market entry and growth</p>
       </div>
-      <div class="service-item">
-        <h4>Inbound Marketing</h4>
-        <p>Content architecture that nurtures and converts.</p>
-      </div>
-      <div class="service-item">
-        <h4>Investor Pitching</h4>
-        <p>Decks and narratives that move capital.</p>
-      </div>
-      <div class="service-item">
+      <div class="service-box">
         <h4>Content Marketing</h4>
-        <p>Authority-building long-form work that establishes trust.</p>
+        <p>Authority-building content that earns trust and drives action</p>
       </div>
-      <div class="service-item">
-        <h4>Performance Marketing</h4>
-        <p>Google, Meta, ROI-driven full-funnel performance.</p>
+      <div class="service-box">
+        <h4>Creative Ads</h4>
+        <p>Scroll-stopping creative built for performance and conversion</p>
+      </div>
+      <div class="service-box">
+        <h4>Software Support</h4>
+        <p>Technical guidance and implementation support for digital platforms</p>
       </div>
     </div>
   </section>
 
-  <!-- Regional Focus -->
-  <section id="region">
-    <h2>Built for South India</h2>
-    <p>We're building from Kerala and Tamil Nadu. Metro or Tier-2, founder pitch or consumer brand, direct English or warm Manglish — we shift register without losing the thread.</p>
+  <!-- Client Portfolio -->
+  <section id="clients">
+    <h2>Our Clients</h2>
+    <p>We partner with startups and early-stage companies across industries. Here are some of the brands we're currently working with.</p>
 
-    <div class="regional-highlight">
-      <h3>Our Market</h3>
-      <p>Bold founders and scaling consumer brands in South India are discovering what we already know: you need a partner who understands your market, your timelines, and your ambition. We don't pretend to be global. We're deeply rooted here.</p>
-      <p style="margin-top: 1rem;"><strong>Current regions:</strong> Kerala · Tamil Nadu · South India</p>
+    <div class="clients-grid">
+      <!-- Gplus -->
+      <div class="client-card">
+        <h3>Gplus Fitness Equipments</h3>
+        <div class="client-location">Ettimadai, Coimbatore</div>
+        <div class="client-services">
+          <strong>Services:</strong>
+          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+            <li>Digital Marketing</li>
+            <li>Meta Ads</li>
+          </ul>
+        </div>
+        <div class="client-highlight">
+          Generated 150+ qualified leads in 6 months
+        </div>
+        <div class="social-link">
+          <a href="https://www.instagram.com/gplus_fitness_equipments/" target="_blank">@gplus_fitness_equipments</a>
+        </div>
+      </div>
+
+      <!-- ZeroZec -->
+      <div class="client-card">
+        <h3>ZeroZec</h3>
+        <div class="client-location">Palakkad, Kerala</div>
+        <div class="client-services">
+          <strong>Services:</strong>
+          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+            <li>Digital Marketing</li>
+            <li>Meta Ads</li>
+            <li>Software Support</li>
+          </ul>
+        </div>
+        <div class="client-highlight">
+          Building brand from scratch in volatile market
+        </div>
+        <div class="social-link">
+          <a href="https://www.instagram.com/zero_zec/" target="_blank">@zero_zec</a>
+        </div>
+      </div>
+
+      <!-- O Square -->
+      <div class="client-card">
+        <h3>O Square Automation</h3>
+        <div class="client-location">South India</div>
+        <div class="client-services">
+          <strong>Services:</strong>
+          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+            <li>Digital Marketing</li>
+            <li>Lead Generation</li>
+          </ul>
+        </div>
+        <div class="client-highlight">
+          Home automation solutions for modern living
+        </div>
+        <div class="social-link">
+          <a href="https://www.instagram.com/osquare_automation/" target="_blank">@osquare_automation</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Brand Identity -->
-  <section id="brand">
-    <h2>Brand Identity</h2>
-
-    <h3>Color Palette</h3>
-    <p>Our colors reflect precision, warmth, and intention:</p>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;">
-      <div style="text-align: center;">
-        <div style="width: 100%; height: 80px; background: #F8F7F4; border: 1px solid var(--border); border-radius: 4px; margin-bottom: 0.5rem;"></div>
-        <small><strong>Off-white</strong><br>#F8F7F4</small>
-      </div>
-      <div style="text-align: center;">
-        <div style="width: 100%; height: 80px; background: #252321; border-radius: 4px; margin-bottom: 0.5rem;"></div>
-        <small><strong>Dark</strong><br>#252321</small>
-      </div>
-      <div style="text-align: center;">
-        <div style="width: 100%; height: 80px; background: #FFD700; border-radius: 4px; margin-bottom: 0.5rem;"></div>
-        <small><strong>Gold</strong><br>#FFD700</small>
-      </div>
-      <div style="text-align: center;">
-        <div style="width: 100%; height: 80px; background: #1a1816; border-radius: 4px; margin-bottom: 0.5rem;"></div>
-        <small><strong>Deep Dark</strong><br>#1a1816</small>
-      </div>
+  <!-- Industry Focus -->
+  <section id="focus">
+    <h2>Our Focus</h2>
+    <div class="focus-box">
+      <h3>Startups and Emerging Brands</h3>
+      <p>We specialize in helping startups and early-stage companies grow gradually with sustainable, qualified lead generation strategies. Rather than chasing vanity metrics, we focus on building genuine market presence and customer interest.</p>
+      <p>Our work spans e-commerce, home automation, fitness, quick-commerce, and other emerging sectors. We understand the challenges of market entry, competitive positioning, and volatile conditions. We're here to help you build a real brand that drives real results.</p>
     </div>
-
-    <h3>Typography</h3>
-    <p><strong>Headlines:</strong> Georgia (serif) — timeless, confident, deliberate.</p>
-    <p><strong>Body:</strong> Inter (sans-serif) — clear, modern, accessible.</p>
-    <p><strong>UI/Labels:</strong> Consolas (monospace) — precise, technical, intentional.</p>
-
-    <h3>Voice & Tone</h3>
-    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
-      <li>Direct and honest — we say what we mean</li>
-      <li>Confident without arrogance — we've earned it</li>
-      <li>Rooted in South India — we understand your market</li>
-      <li>Strategic and craft-focused — not just pretty, always purposeful</li>
-    </ul>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Get In Touch</h2>
-    <p>Ready to build something precise? Let's talk.</p>
+    <p>Ready to build something precise for your startup? Let's talk.</p>
 
-    <div class="contact-info">
+    <div class="contact-grid">
       <div class="contact-block">
-        <strong>Email</strong>
-        <p><a href="mailto:twilinemedia@gmail.com" style="color: var(--gold-ui); text-decoration: none;">twilinemedia@gmail.com</a></p>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">
+          <a href="mailto:hello@twilineai.com">hello@twilineai.com</a>
+        </div>
       </div>
       <div class="contact-block">
-        <strong>Location</strong>
-        <p>Kerala, Tamil Nadu — India</p>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">
+          <a href="tel:8848648277">+91 8848648277</a>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Palakkad, Kerala</div>
       </div>
     </div>
+
+    <p style="margin-top: 2rem; font-size: 0.95rem;">
+      <strong>Visit us online:</strong>
+      <a href="https://twiline-media.vercel.app/" style="color: var(--gold-ui); text-decoration: none; margin-right: 1rem;">Website</a>
+      <a href="https://www.instagram.com/twiline_media/" style="color: var(--gold-ui); text-decoration: none;">@twiline_media</a>
+    </p>
   </section>
 
 </div>
 
 <footer>
   <p>&copy; 2026 Twiline Media. All rights reserved.</p>
-  <p style="margin-top: 0.5rem;">Strategy · Craft · Trust</p>
 </footer>
 
 </body>
