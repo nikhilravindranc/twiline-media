@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twiline Media - Company Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,13 +14,17 @@
       --bg: #F8F7F4;
       --bg-2: #EEECE7;
       --dark: #252321;
+      --dark-2: #312E2B;
+      --dark-3: #1a1816;
       --gold: #FFD700;
       --gold-ui: #C9A800;
       --text: #252321;
-      --muted: rgba(37,35,33,0.52);
-      --border: rgba(37,35,33,0.10);
-      --ff-serif: Georgia, 'Times New Roman', serif;
-      --ff-sans: Inter, Arial, sans-serif;
+      --muted: rgba(37,35,33,0.65);
+      --light-muted: rgba(37,35,33,0.45);
+      --border: rgba(37,35,33,0.08);
+      --ff-serif: Georgia, serif;
+      --ff-sans: Inter, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -30,57 +35,123 @@
       line-height: 1.7;
     }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
 
-    /* Header */
+    /* Hero Header */
     header {
-      padding: 3.5rem 0;
-      border-bottom: 1px solid var(--border);
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+      border-bottom: 2px solid var(--gold);
     }
 
-    .logo-section {
-      display: flex;
+    .header-content {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
     }
 
-    .logo-section img { height: 50px; width: auto; }
+    .logo-box {
+      flex-shrink: 0;
+    }
 
-    h1 {
+    .logo-box img {
+      height: 80px;
+      width: auto;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+
+    .header-text h1 {
       font-family: var(--ff-serif);
-      font-size: 2.5rem;
-      font-weight: normal;
+      font-size: 3rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+      color: var(--dark);
+      line-height: 1.1;
     }
 
-    .tagline {
-      font-size: 1rem;
+    .header-text p {
+      font-size: 1.1rem;
       color: var(--muted);
       font-style: italic;
+      margin: 0;
     }
 
-    /* Section */
+    /* Intro Bar */
+    .intro-bar {
+      background: var(--dark-3);
+      color: #EEECE7;
+      padding: 2.5rem 0;
+      margin: 4rem 0;
+    }
+
+    .intro-bar .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-item h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--gold);
+    }
+
+    .stat-item p {
+      font-size: 0.95rem;
+      color: rgba(238,236,231,0.8);
+      margin: 0;
+    }
+
+    /* Main Content Sections */
     section {
+      margin: 5rem 0;
       padding: 3.5rem 0;
-      border-bottom: 1px solid var(--border);
     }
 
-    section:last-of-type { border-bottom: none; }
+    section:not(:first-of-type) {
+      border-top: 1px solid var(--border);
+    }
 
     h2 {
       font-family: var(--ff-serif);
-      font-size: 1.8rem;
-      font-weight: normal;
-      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
       color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--gold-ui);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 700px;
+      line-height: 1.8;
     }
 
     h3 {
       font-family: var(--ff-serif);
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
       color: var(--dark);
+      font-weight: 700;
     }
 
     p {
@@ -91,280 +162,550 @@
     }
 
     ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
+      margin: 1.5rem 0 1.5rem 2rem;
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       color: var(--text);
+      line-height: 1.7;
     }
 
     /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 2rem;
+      margin: 2.5rem 0;
     }
 
-    .service-box {
-      padding: 1.25rem;
-      background: var(--bg-2);
-      border-left: 3px solid var(--gold);
-      border-radius: 4px;
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s var(--ease);
     }
 
-    .service-box h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
+    .service-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(255,215,0,0.1);
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .service-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
       color: var(--dark);
-      margin-bottom: 0.5rem;
     }
 
-    .service-box p {
-      font-size: 0.9rem;
+    .service-card p {
+      font-size: 0.95rem;
       color: var(--muted);
       margin: 0;
+      line-height: 1.6;
     }
 
-    /* Clients */
+    /* About Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2.5rem 0;
+    }
+
+    .about-block {
+      background: var(--bg-2);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .about-block h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    /* Clients Section */
     .clients-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      margin-top: 2rem;
+      margin: 2.5rem 0;
     }
 
     .client-card {
-      padding: 1.75rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
       background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s var(--ease);
+    }
+
+    .client-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .client-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .client-icon {
+      font-size: 1.5rem;
+      color: var(--gold);
     }
 
     .client-card h3 {
-      margin-top: 0;
-      font-size: 1rem;
+      margin: 0;
+      font-size: 1.15rem;
       color: var(--dark);
     }
 
     .client-location {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--gold-ui);
-      font-weight: 500;
-      margin-bottom: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0.75rem 0 1rem;
     }
 
     .client-services {
       font-size: 0.9rem;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .client-highlight {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
+    .client-services strong {
       color: var(--dark);
-      font-weight: 500;
-    }
-
-    .social-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .social-link a {
-      color: var(--gold-ui);
-      text-decoration: none;
-    }
-
-    .social-link a:hover { text-decoration: underline; }
-
-    /* Industry Focus */
-    .focus-box {
-      background: #E8E3D9;
-      padding: 2rem;
-      border-radius: 6px;
-      margin-top: 1.5rem;
-    }
-
-    .focus-box h3 { margin-top: 0; }
-
-    /* Contact Section */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .contact-block {
-      padding: 1.5rem;
-      background: var(--bg-2);
-      border-radius: 6px;
-    }
-
-    .contact-label {
-      font-weight: 600;
-      color: var(--dark);
+      display: block;
       margin-bottom: 0.5rem;
     }
 
-    .contact-value {
-      font-size: 0.95rem;
+    .client-services ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .client-services li {
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+    }
+
+    .client-highlight {
+      background: #FFF9E6;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .client-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .client-link a {
+      color: var(--gold-ui);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .client-link a:hover { color: var(--gold); }
+
+    /* Focus Section */
+    .focus-highlight {
+      background: linear-gradient(135deg, #E8E3D9 0%, #F0EBE3 100%);
+      padding: 3rem;
+      border-radius: 8px;
+      border-left: 5px solid var(--gold);
+      margin: 2.5rem 0;
+    }
+
+    .focus-highlight h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .focus-highlight p {
       color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .focus-highlight p:last-child { margin-bottom: 0; }
+
+    /* Why Choose Us */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .benefit-icon {
+      font-size: 1.8rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .benefit-text h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .benefit-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Contact Footer */
+    .contact-section {
+      background: var(--dark-3);
+      color: #EEECE7;
+      padding: 4rem 0;
+      margin-top: 5rem;
+    }
+
+    .contact-section h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .contact-block {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .contact-block-icon {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .contact-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      color: white;
+    }
+
+    .contact-value {
+      font-size: 1.1rem;
+      color: #EEECE7;
+      margin: 0;
     }
 
     .contact-value a {
-      color: var(--gold-ui);
+      color: var(--gold);
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
     }
 
-    .contact-value a:hover { text-decoration: underline; }
+    .contact-value a:hover { color: #FFF9E6; }
 
-    /* Footer */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #EEECE7;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover { color: var(--gold); }
+
+    .social-icon {
+      font-size: 1.3rem;
+    }
+
     footer {
+      background: rgba(0,0,0,0.3);
       padding: 2rem 0;
-      border-top: 1px solid var(--border);
       text-align: center;
-      color: var(--muted);
+      color: rgba(238,236,231,0.6);
       font-size: 0.9rem;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      .services-grid, .clients-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .logo-section { flex-direction: column; align-items: flex-start; }
-      header, section { padding: 2.5rem 0; }
+    @media (max-width: 900px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      .header-content { grid-template-columns: 1fr; }
+      .services-grid, .clients-grid, .benefit-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .intro-bar .container { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 640px) {
       .container { padding: 0 1.5rem; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.4rem; }
+      section { padding: 2.5rem 0; }
+      header { padding: 3rem 0; }
+      .logo-box img { height: 60px; }
+      .contact-section { padding: 3rem 0; }
     }
   </style>
 </head>
 <body>
 
+<!-- Hero Header -->
 <header>
   <div class="container">
-    <div class="logo-section">
-      <img src="./assets/logo-black.png" alt="Twiline Media">
-      <div>
+    <div class="header-content">
+      <div class="logo-box">
+        <img src="./assets/logo-black.png" alt="Twiline Media">
+      </div>
+      <div class="header-text">
         <h1>Twiline Media</h1>
-        <p class="tagline">The thread that connects intention to impact.</p>
+        <p>The thread that connects intention to impact.</p>
       </div>
     </div>
   </div>
 </header>
 
+<!-- Quick Stats -->
+<div class="intro-bar">
+  <div class="container">
+    <div class="stat-item">
+      <h3>3+</h3>
+      <p>Active Client Partnerships</p>
+    </div>
+    <div class="stat-item">
+      <h3>150+</h3>
+      <p>Qualified Leads Generated</p>
+    </div>
+    <div class="stat-item">
+      <h3>9</h3>
+      <p>Core Disciplines</p>
+    </div>
+  </div>
+</div>
+
 <div class="container">
 
   <!-- About Section -->
   <section id="about">
-    <h2>About Twiline Media</h2>
-    <p>Twiline Media is a creative agency focused on helping startups grow with qualified leads and strong market positioning. We specialize in building brands from scratch, scaling in volatile markets, and delivering measurable results through digital-first strategies.</p>
-    <p>We don't do templates. We work closely with founders and emerging brands to understand their market, their ambition, and their timeline. Our approach: integrated strategy, precise execution, and measurable outcomes.</p>
+    <div class="section-subtitle">Who We Are</div>
+    <h2>We Help Startups Grow with Purpose</h2>
+    <p class="section-intro">Twiline Media is a creative agency built for startups and emerging brands in South India. We specialize in sustainable growth, qualified lead generation, and building real market presence in competitive, volatile spaces.</p>
+
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>The Problem We Solve</h3>
+        <p>Most startups bounce between agencies, each handling a single discipline. You end up with disconnected strategies, inconsistent messaging, and mediocre results. We do the opposite: integrated strategy across all nine disciplines, one unified vision, one standard.</p>
+      </div>
+      <div class="about-block">
+        <h3>Our Approach</h3>
+        <p>We sit alongside you from day one. We understand startup timelines, budget constraints, and the need for measurable ROI. Every campaign, every creative asset, every decision is tied to your growth objectives. Not templates. Not guesswork. Real strategy, real craft, real results.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Services Section -->
   <section id="services">
-    <h2>Our Services</h2>
-    <p>We deliver across nine core disciplines to meet the full scope of modern brand building.</p>
+    <div class="section-subtitle">What We Offer</div>
+    <h2>Nine Disciplines. One Standard.</h2>
+    <p class="section-intro">Everything your startup needs to grow, under one roof.</p>
 
     <div class="services-grid">
-      <div class="service-box">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
         <h4>Digital Marketing</h4>
-        <p>Full-funnel awareness and lead generation across channels</p>
+        <p>Full-funnel strategies to build awareness, generate leads, and drive conversions across all channels.</p>
       </div>
-      <div class="service-box">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-share-alt"></i></div>
         <h4>Meta Ads & Social</h4>
-        <p>Facebook and Instagram campaigns designed for qualified lead conversion</p>
+        <p>Facebook and Instagram campaigns optimized for qualified lead generation and brand growth.</p>
       </div>
-      <div class="service-box">
-        <h4>Branding</h4>
-        <p>Identity, voice, and positioning for market entry and growth</p>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-palette"></i></div>
+        <h4>Branding & Identity</h4>
+        <p>Logo, visual identity, brand voice, and positioning for market entry and sustainable growth.</p>
       </div>
-      <div class="service-box">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
         <h4>Content Marketing</h4>
-        <p>Authority-building content that earns trust and drives action</p>
+        <p>Authority-building content that earns trust, establishes expertise, and drives long-term engagement.</p>
       </div>
-      <div class="service-box">
-        <h4>Creative Ads</h4>
-        <p>Scroll-stopping creative built for performance and conversion</p>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-film"></i></div>
+        <h4>Creative & Video</h4>
+        <p>Scroll-stopping creative assets and video content built for performance and conversion.</p>
       </div>
-      <div class="service-box">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-tools"></i></div>
         <h4>Software Support</h4>
-        <p>Technical guidance and implementation support for digital platforms</p>
+        <p>Technical guidance and implementation support for digital platforms and marketing automation.</p>
       </div>
     </div>
   </section>
 
   <!-- Client Portfolio -->
   <section id="clients">
-    <h2>Our Clients</h2>
-    <p>We partner with startups and early-stage companies across industries. Here are some of the brands we're currently working with.</p>
+    <div class="section-subtitle">Our Clients</div>
+    <h2>Startups We're Growing With</h2>
+    <p class="section-intro">We partner with emerging brands across e-commerce, fitness, home automation, and quick-commerce. Here's who we're working with right now.</p>
 
     <div class="clients-grid">
       <!-- Gplus -->
       <div class="client-card">
-        <h3>Gplus Fitness Equipments</h3>
-        <div class="client-location">Ettimadai, Coimbatore</div>
+        <div class="client-header">
+          <div class="client-icon"><i class="fas fa-dumbbell"></i></div>
+          <h3>Gplus Fitness</h3>
+        </div>
+        <div class="client-location">Coimbatore</div>
         <div class="client-services">
           <strong>Services:</strong>
-          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <ul>
             <li>Digital Marketing</li>
-            <li>Meta Ads</li>
+            <li>Meta Ads & Lead Gen</li>
           </ul>
         </div>
         <div class="client-highlight">
-          Generated 150+ qualified leads in 6 months
+          <i class="fas fa-trophy" style="margin-right: 0.5rem;"></i> 150+ qualified leads in 6 months
         </div>
-        <div class="social-link">
+        <div class="client-link">
+          <i class="fab fa-instagram"></i>
           <a href="https://www.instagram.com/gplus_fitness_equipments/" target="_blank">@gplus_fitness_equipments</a>
         </div>
       </div>
 
       <!-- ZeroZec -->
       <div class="client-card">
-        <h3>ZeroZec</h3>
-        <div class="client-location">Palakkad, Kerala</div>
+        <div class="client-header">
+          <div class="client-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>ZeroZec</h3>
+        </div>
+        <div class="client-location">Palakkad</div>
         <div class="client-services">
           <strong>Services:</strong>
-          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <ul>
             <li>Digital Marketing</li>
             <li>Meta Ads</li>
             <li>Software Support</li>
           </ul>
         </div>
         <div class="client-highlight">
-          Building brand from scratch in volatile market
+          <i class="fas fa-rocket" style="margin-right: 0.5rem;"></i> Brand launch in volatile market
         </div>
-        <div class="social-link">
+        <div class="client-link">
+          <i class="fab fa-instagram"></i>
           <a href="https://www.instagram.com/zero_zec/" target="_blank">@zero_zec</a>
         </div>
       </div>
 
       <!-- O Square -->
       <div class="client-card">
-        <h3>O Square Automation</h3>
+        <div class="client-header">
+          <div class="client-icon"><i class="fas fa-home"></i></div>
+          <h3>O Square Automation</h3>
+        </div>
         <div class="client-location">South India</div>
         <div class="client-services">
           <strong>Services:</strong>
-          <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <ul>
             <li>Digital Marketing</li>
             <li>Lead Generation</li>
           </ul>
         </div>
         <div class="client-highlight">
-          Home automation solutions for modern living
+          <i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i> Smart home solutions
         </div>
-        <div class="social-link">
+        <div class="client-link">
+          <i class="fab fa-instagram"></i>
           <a href="https://www.instagram.com/osquare_automation/" target="_blank">@osquare_automation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section id="why">
+    <div class="section-subtitle">Why Work With Us</div>
+    <h2>Startup-Focused, Results-Driven</h2>
+
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="benefit-text">
+          <h4>Integrated Strategy</h4>
+          <p>No agency hopping. All nine disciplines working together with one unified vision and measurable goals.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="benefit-text">
+          <h4>Qualified Leads, Not Vanity Metrics</h4>
+          <p>We focus on generating genuine, conversion-ready leads. Not followers. Not impressions. Real potential customers.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="benefit-text">
+          <h4>South India Expertise</h4>
+          <p>We understand local markets, regional dynamics, and the unique challenges startups face in South India.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="benefit-text">
+          <h4>Flexible Partnerships</h4>
+          <p>We work with your timeline and budget. Startups need partners who evolve with their growth stage.</p>
         </div>
       </div>
     </div>
@@ -372,49 +713,62 @@
 
   <!-- Industry Focus -->
   <section id="focus">
-    <h2>Our Focus</h2>
-    <div class="focus-box">
-      <h3>Startups and Emerging Brands</h3>
-      <p>We specialize in helping startups and early-stage companies grow gradually with sustainable, qualified lead generation strategies. Rather than chasing vanity metrics, we focus on building genuine market presence and customer interest.</p>
-      <p>Our work spans e-commerce, home automation, fitness, quick-commerce, and other emerging sectors. We understand the challenges of market entry, competitive positioning, and volatile conditions. We're here to help you build a real brand that drives real results.</p>
+    <div class="section-subtitle">Our Focus</div>
+    <h2>Built for Startups and Emerging Brands</h2>
+
+    <div class="focus-highlight">
+      <h3>We Specialize in Startup Growth</h3>
+      <p>We work with early-stage companies across e-commerce, fitness, home automation, quick-commerce, and other emerging sectors. We understand your challenges: limited budgets, need for quick market validation, volatile competitive landscapes, and the requirement for sustainable, qualified lead generation.</p>
+      <p>Rather than chasing vanity metrics, we focus on building real market presence, generating qualified prospects, and delivering measurable business outcomes. We're not just an agency. We're a growth partner for startups who demand precision and accountability.</p>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Get In Touch</h2>
-    <p>Ready to build something precise for your startup? Let's talk.</p>
-
-    <div class="contact-grid">
-      <div class="contact-block">
-        <div class="contact-label">Email</div>
-        <div class="contact-value">
-          <a href="mailto:hello@twilineai.com">hello@twilineai.com</a>
-        </div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-label">Phone</div>
-        <div class="contact-value">
-          <a href="tel:8848648277">+91 8848648277</a>
-        </div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-label">Location</div>
-        <div class="contact-value">Palakkad, Kerala</div>
-      </div>
-    </div>
-
-    <p style="margin-top: 2rem; font-size: 0.95rem;">
-      <strong>Visit us online:</strong>
-      <a href="https://twiline-media.vercel.app/" style="color: var(--gold-ui); text-decoration: none; margin-right: 1rem;">Website</a>
-      <a href="https://www.instagram.com/twiline_media/" style="color: var(--gold-ui); text-decoration: none;">@twiline_media</a>
-    </p>
   </section>
 
 </div>
 
+<!-- Contact Section -->
+<div class="contact-section">
+  <div class="container">
+    <div class="section-subtitle">Get Started</div>
+    <h2>Ready to Build Something Precise?</h2>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <div class="contact-block-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-label">Email</div>
+        <p class="contact-value">
+          <a href="mailto:hello@twilineai.com">hello@twilineai.com</a>
+        </p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-label">Phone</div>
+        <p class="contact-value">
+          <a href="tel:8848648277">+91 8848648277</a>
+        </p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-label">Location</div>
+        <p class="contact-value">Palakkad, Kerala</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://twiline-media.vercel.app/" class="social-link" target="_blank">
+        <i class="fas fa-globe social-icon"></i>
+        Visit Website
+      </a>
+      <a href="https://www.instagram.com/twiline_media/" class="social-link" target="_blank">
+        <i class="fab fa-instagram social-icon"></i>
+        @twiline_media
+      </a>
+    </div>
+  </section>
+
 <footer>
-  <p>&copy; 2026 Twiline Media. All rights reserved.</p>
+  <div class="container">
+    <p>&copy; 2026 Twiline Media. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
